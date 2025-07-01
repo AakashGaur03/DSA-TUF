@@ -5,4 +5,31 @@ Hi
 2
 3
  arr[1].second : 4
-Vectors
+Gives Last element:40
+NEW 
+10
+20
+30
+40
+Again with auto :
+10 20 30 40 
+For Each
+10 20 30 40 
+After Deletion
+10 30 40 
+After Push Back
+10 30 40 1 2 
+After Deletion
+10 1 2 
+300 100 100 
+300 50 100 100 
+300 50 40 40 100 100 
+70 70 300 50 40 40 100 100 
+2 3 70 70 300 50 40 40 100 100 
+Size is: 10
+2 3 70 70 300 50 40 40 100 
+SV1 :45 65 56545 34 32 
+SV2 :2 70 
+Clears SV2 :
+SV2 : 1
+SV1: 0
