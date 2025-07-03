@@ -4,6 +4,7 @@
 		".env.example": "properties",
 		".env.local": "properties",
 		".env.production": "properties",
-		"iostream": "cpp"
+		"iostream": "cpp",
+		"string": "cpp"
 	}
 }

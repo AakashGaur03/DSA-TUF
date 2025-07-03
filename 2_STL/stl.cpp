@@ -336,13 +336,148 @@ void explainSet() {
   auto someOtherit2 = st.upper_bound(3);
 }
 
+void explainMultiSet() {
+  // Everything is same as set
+  // only stores duplicate element as well
+
+  multiset<int> ms;
+  cout << "MultiSet" << endl;
+  ms.insert(1);
+  ms.insert(1);
+  ms.insert(1);
+  int cnt = ms.count(1);
+  cout << "Count of 1 is :" << cnt << endl;
+  // This will erase **all** instances of 1
+  ms.erase(1); // ms = {}
+  int cnt2 = ms.count(1);
+  cout << "Count of 1 is :" << cnt2 << endl;
+  ms.erase(ms.find(1)); // Only single erased
+  // Rest all Function are same
+}
+void explainUSet() {
+  // Unordered Set
+  // Simialr to Set but not sorted completely randomized
+  // upper_bound and lower_bound doesnt work as they works on sorted
+  // rest all functions are same
+  // Time complexity in most cases o(1)
+  // Once in a blue moon O(n)
+}
+
+void explainMap() {
+  // Key value pair
+  // keys must be unique value can be same
+  // key and value can be of any datatype
+  // map stores unique key in sorted order
+  map<int, int> mpp;
+  map<int, pair<int, int>> mpp2;
+  map<pair<int, int>, int> mpp3;
+  mpp[1] = 2;         // mpp = {1 → 2}
+  mpp.emplace(3, 1);  // mpp = {1 → 2, 3 → 1}
+  mpp.insert({2, 4}); // mpp = {1 → 2, 2 → 4, 3 → 1}
+
+  // {
+  //   {1,2}
+  //   {2,4}
+  //   {3,1}
+  // }
+  mpp3[{2, 3}] = 10; // key = pair<int, int> = {2,3}, value = 10
+
+  for (auto it : mpp) {
+    cout << it.first << " " << it.second << endl;
+  }
+  cout << mpp[1] << endl; // gives value of 1
+  cout << mpp[3] << endl; // gives value of 3
+  cout << mpp[5] << endl; // doesnt exist so 0
+
+  auto it = mpp.find(3);
+  // it is {3,1} in this case
+  cout << (*it).second;
+  cout << (*it).first;
+  auto it2 = mpp.find(5); // mpp.end() if not present
+  auto it3 = mpp.lower_bound(2);
+  auto it4 = mpp.upper_bound(3);
+  // erase swap size empty are same
+}
+
+void explainMultiMap() {
+  // everything same as map, only it can store duplicate keys
+  // only mpp[keys] cannot be used
+}
+void explainUnorderedMap() {
+  // everything same as map but dont store in sorted order in randomized order
+  // unique keys but unsorted
+  // In most cases O(1)
+  // once in a blue moon O(n)
+}
+
+bool comp(pair<int, int> p1, pair<int, int> p2) {
+  // Basically what comp will do it will return true or false
+  // When it return false then the pairs are swaped with each other
+  if (p1.second < p2.second)
+    return true;
+  if (p1.second > p2.second)
+    return false;
+
+  // or we can simply write it without if conditon too
+  // if (p1.second = p2.second) {
+  if (p1.first > p2.first)
+    return true;
+  return false;
+
+  // Similar as
+  // if (p1.first > p2.first)
+  //   return true
+  //
+  // if (p1.first < p2.first)
+  //   return false;
+}
+
+void explainExtra() {
+  // sort(a, a + n);
+  // sort(v.begin(), v.end());
+  // sort(a + 2, a + 4);
+  // sort(a, a + n, greater<int>); // Sort in descending Order
+
+  // pair<int, int> a[] = {{1, 2}, {2, 1}, {4, 1}};
+  // // sort it acc to second element
+  // // if second element is same then sort
+  // // it acc to first element in descending
+
+  // sort(a, a + n, comp); // comp is self written comparator
+  // // we have wriiten it above this function
+
+  int num = 7; // Binary: 000...0111
+  //__builtin_popcount(num) returns the number of set bits (1s) in the binary
+  // representation of num.
+  int cnt = __builtin_popcount(num); // cnt = 3
+  cout << "cnt" << cnt << endl;
+
+  long long numb = 123456545645;
+  int cnt2 = __builtin_popcountll(numb);
+  cout << "cnt2" << cnt2 << endl;
+  cout << endl;
+  string s = "213";
+  // what if string was 231 then it would have only printed 231 312 321
+  // so note if we want all then we will start with sorted order
+  sort(s.begin(), s.end());
+  do {
+    cout << s << endl;
+  } while (next_permutation(s.begin(), s.end())); // Gives all permutations
+
+  // int maxi = *max_element(a, a + n); // Gives max element in array
+  // Gives max_element(a, a + n) address so * to get value
+  // int mini = *min_element(a, a + n); // Gives min element in array
+}
 int main() {
   cout << "Hi" << endl;
-  explainPair();
-  explainVector();
-  explainStack();
-  explainQueue();
-  explainPriorityQueue();
-  explainSet();
+  // explainPair();
+  // explainVector();
+  // explainStack();
+  // explainQueue();
+  // explainPriorityQueue();
+  // explainSet();
+  // explainMultiSet();
+  // explainMap();
+  explainExtra();
   return 0;
 }
