@@ -32,4 +32,10 @@ SV1 :45 65 56545 34 32
 SV2 :2 70 
 Clears SV2 :
 SV2 : 1
-SV1: 0
+SV1: 050911302
+Priority Queue PQ
+1080310
+Set
+1
+1 2 3 
+2 Exist :0
