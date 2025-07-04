@@ -1,0 +1,8 @@
+Hi Basic Maths
+
+Enter Number to get Digits :
+
+Printing Divisors :
+1 2 3 4 6 9 12 18 36 
+Other Way
+1 2 3 4 6 9 12 18 36 

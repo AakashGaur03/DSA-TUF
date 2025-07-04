@@ -5,6 +5,7 @@
 		".env.local": "properties",
 		".env.production": "properties",
 		"iostream": "cpp",
-		"string": "cpp"
+		"string": "cpp",
+		"__locale": "cpp"
 	}
 }
