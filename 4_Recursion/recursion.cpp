@@ -74,6 +74,65 @@ void printLinearlyFrom_N_To_1_UsingBacTracking(int i, int n) {
   cout << i << endl;
 }
 
+// Summation of First N Numbers
+// Parameterised Recursion
+// you can print
+void sumOfNNumbersParameterised(int i, int sum) {
+  if (i < 1) {
+    cout << sum;
+    return;
+  }
+  sumOfNNumbersParameterised(i - 1, sum + i);
+}
+// Functional Recursion
+// you need to return value
+
+// 4 + f(3), f(3) => 3 + f(2), f(2) =>2 + f(1), f(1) =>1+f(0), f(0)=> 0
+
+int sumOfNNumbersFunctional(int n) {
+  if (n == 1) {
+    return 1;
+  }
+  return n + sumOfNNumbersFunctional(n - 1);
+}
+
+int factorialOfN(int n) {
+  if (n == 1)
+    return 1;
+  return n * factorialOfN(n - 1);
+}
+
+void reverseeAnArray(int arr[], int l, int r) {
+  if (l >= r)
+    return;
+  swap(arr[l], arr[r]);
+  reverseeAnArray(arr, l + 1, r - 1);
+}
+void reverseeAnArraySinlgeElemet(int arr[], int i, int n) {
+  if (i >= n / 2)
+    return;
+  swap(arr[i], arr[n - i - 1]);
+  reverseeAnArraySinlgeElemet(arr, i + 1, n);
+}
+
+bool palindromeOrNot(string str, int i, int n) {
+  if (i >= n) {
+    return true;
+  }
+  if (str[i] != str[n]) {
+    return false;
+  }
+  return palindromeOrNot(str, i + 1, n - 1);
+}
+bool palindromeOrNotSecondWay(int i, string &str) {
+  if (i >= str.size() / 2) {
+    return true;
+  }
+  if (str[i] != str[str.size() - i - 1]) {
+    return false;
+  }
+  return palindromeOrNotSecondWay(i + 1, str);
+}
 int main() {
   cout << "Hi Recusion" << endl;
   int n;
@@ -84,7 +143,31 @@ int main() {
   // printLinearlyFrom1ToN(1, n);
   // printLinearlyFromNTo1(n, n);
   // printLinearlyFrom1ToNUsingBacTracking(n, n);
-  printLinearlyFrom_N_To_1_UsingBacTracking(1, n);
+  // printLinearlyFrom_N_To_1_UsingBacTracking(1, n);
+  // sumOfNNumbersParameterised(n, 0);
+  // int res = sumOfNNumbersFunctional(n);
+  // cout << res;
+  // int resFactorial = factorialOfN(n);
+  // cout << resFactorial;
+  // int arr[6];
+  // for (int i = 0; i < n; i++) {
+  //   cin >> arr[i];
+  // }
+
+  // reverseeAnArray(arr, 0, n - 1);
+  // for (int i = 0; i < n; i++) {
+  //   cout << arr[i] << " ";
+  // }
+  // cout << endl;
+  // reverseeAnArraySinlgeElemet(arr, 0, n);
+  // for (int i = 0; i < n; i++) {
+  //   cout << arr[i] << " ";
+  // }
+
+  string st = "MADAM";
+  cout << palindromeOrNot(st, 0, st.length() - 1);
+  string st2 = "MADAM";
+  cout << palindromeOrNotSecondWay(0, st2);
 
   return 0;
 }
