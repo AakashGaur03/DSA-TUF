@@ -133,6 +133,15 @@ bool palindromeOrNotSecondWay(int i, string &str) {
   }
   return palindromeOrNotSecondWay(i + 1, str);
 }
+
+// Multiple Recursion Calls
+int fibonacciNumber(int n) {
+  // TC is near about 2^n
+  // Each n is calling function 2 times
+  if (n <= 1)
+    return n;
+  return fibonacciNumber(n - 1) + fibonacciNumber(n - 2);
+}
 int main() {
   cout << "Hi Recusion" << endl;
   int n;
@@ -164,10 +173,14 @@ int main() {
   //   cout << arr[i] << " ";
   // }
 
-  string st = "MADAM";
-  cout << palindromeOrNot(st, 0, st.length() - 1);
-  string st2 = "MADAM";
-  cout << palindromeOrNotSecondWay(0, st2);
+  // string st = "MADAM";
+  // cout << palindromeOrNot(st, 0, st.length() - 1);
+  // string st2 = "MADAM";
+  // cout << palindromeOrNotSecondWay(0, st2);
 
+  int result = fibonacciNumber(n);
+  cout << result;
   return 0;
 }
+
+// 0 1 1 2 3 5 8 13 21 34 55 89 144
