@@ -6,6 +6,9 @@
 		".env.production": "properties",
 		"iostream": "cpp",
 		"string": "cpp",
-		"__locale": "cpp"
+		"__locale": "cpp",
+		"map": "cpp",
+		"__hash_table": "cpp",
+		"unordered_map": "cpp"
 	}
 }

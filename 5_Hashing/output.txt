@@ -1,0 +1,12 @@
+Hashing and Maps
+3 2
+12 1
+2 1
+1 1
+1
+1
+2
+0
+1
+Maximum frequency is: 2
+Most frequent number is: 3 with frequency: 2
