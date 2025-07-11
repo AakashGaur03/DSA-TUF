@@ -46,7 +46,7 @@ void bubbleSort(int arr[], int size) {
 
   // So after first Iteration 52 the most number goes to last
 
-  for (int i = size - 1; i >= 1; i++) {
+  for (int i = size - 1; i >= 1; i--) {
     int didSwap = 0;
     for (int j = 0; j <= i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -59,6 +59,65 @@ void bubbleSort(int arr[], int size) {
     }
   }
 }
+
+void insertionSort(int arr[], int n) {
+  // n* (n+1)/2
+  // Worst and Avg o(N^2)
+  // Best Case O(N)
+  // Because no Swaps are happening
+  // Takes an element and places it at correct order
+  for (int i = 0; i <= n - 1; i++) {
+    int j = i;
+    while (j > 0 && arr[j - 1] > arr[j]) {
+      swap(arr[j - 1], arr[j]);
+      j--;
+    }
+  }
+}
+
+void mergeThem(vector<int> &arr, int low, int mid, int high) {
+  int left = low;
+  int right = mid + 1;
+  vector<int> temp;
+  while (left <= mid && right <= high) {
+    if (arr[left] <= arr[right]) {
+      temp.push_back(arr[left]);
+      left++;
+    } else {
+      temp.push_back(arr[right]);
+      right++;
+    }
+  }
+  while (left <= mid) {
+    temp.push_back(arr[left]);
+    left++;
+  }
+  while (right <= high) {
+    temp.push_back(arr[right]);
+    right++;
+  }
+
+  for (int i = low; i <= high; i++) {
+    arr[i] = temp[i - low];
+  }
+}
+
+void mergeSort(vector<int> &arr, int low, int high) {
+  // Time Complexity
+  // Divide O(log N)
+  // Merge O(N)
+  // So O(n log n)
+  // SC : O(N) due to Temporary Array(Vector)
+  // Divide and Merge
+  if (low == high)
+    return;
+  int mid = (low + high) / 2;
+  mergeSort(arr, low, mid);
+  mergeSort(arr, mid + 1, high);
+
+  mergeThem(arr, low, mid, high);
+}
+
 int main() {
   cout << "Sorting" << endl;
   // Selction Sort
@@ -84,17 +143,33 @@ int main() {
 
   int arr[] = {23, 43, 23, 56, 3, 8};
   int size = 6;
-  selectionSort(arr, size);
+  // selectionSort(arr, size);
 
-  for (auto it : arr) {
+  // cout << endl << "Selection" << endl;
+  // for (auto it : arr) {
+  //   cout << it << " ";
+  // }
+  // cout << endl;
+  // cout << "Bubble" << endl;
+
+  // int arr2[] = {23, 43, 23, 56, 3, 8};
+  // bubbleSort(arr2, size);
+  // for (auto it2 : arr2) {
+  //   cout << it2 << " ";
+  // }
+  // cout << endl << "Insertion";
+  // int arr3[] = {23, 43, 23, 56, 3, 8};
+  // insertionSort(arr3, size);
+  // for (auto it3 : arr3) {
+  //   cout << it3 << " ";
+  // }
+  vector<int> arr4 = {23, 43, 23, 56, 3, 8};
+  mergeSort(arr4, 0, size - 1);
+
+  cout << "Sorted Array: ";
+  for (auto it : arr4) {
     cout << it << " ";
   }
   cout << endl;
-  int arr2[] = {23, 43, 23, 56, 3, 8};
-  bubbleSort(arr2, size);
-  for (auto it : arr2) {
-    cout << it << " ";
-  }
-
   return 0;
 }
