@@ -118,7 +118,7 @@ void mergeSort(vector<int> &arr, int low, int high) {
   mergeThem(arr, low, mid, high);
 }
 
-int getPartIdx(vector<int> &arr, int low, int high) {
+int getPartIdxAsc(vector<int> &arr, int low, int high) {
   int pivot = arr[low];
   int i = low;
   int j = high;
@@ -141,13 +141,37 @@ int getPartIdx(vector<int> &arr, int low, int high) {
   swap(arr[low], arr[j]);
   return j;
 }
+int getPartIdxDesc(vector<int> &arr, int low, int high) {
+  int pivot = arr[low];
+  int i = low;
+  int j = high;
+  while (i < j) {
+    while (arr[i] >= pivot && i <= high - 1) {
+      // This gives first index that is greater than pivot
+      i++;
+    }
+    while (arr[j] < pivot && j >= low + 1) {
+      // This gives first index that is smaller than pivot
+      j--;
+    }
+    if (i < j) {
+      swap(arr[i], arr[j]);
+    }
+    // We swap them we do till all Smaller on the left and larger on the right
+  }
+  // TO position the first that is pivot at the right place after this Pivot
+  // gets to the right position in the array
+  swap(arr[low], arr[j]);
+  return j;
+}
 
 void quickSort(vector<int> &arr, int low, int high) {
   // Divide and Conquer Algorithm
   if (low >= high)
     return;
 
-  int partitionIndex = getPartIdx(arr, low, high);
+  // int partitionIndex = getPartIdxAsc(arr, low, high);
+  int partitionIndex = getPartIdxDesc(arr, low, high);
   quickSort(arr, low, partitionIndex - 1);
   quickSort(arr, partitionIndex + 1, high);
 
