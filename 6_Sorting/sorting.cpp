@@ -118,6 +118,46 @@ void mergeSort(vector<int> &arr, int low, int high) {
   mergeThem(arr, low, mid, high);
 }
 
+int getPartIdx(vector<int> &arr, int low, int high) {
+  int pivot = arr[low];
+  int i = low;
+  int j = high;
+  while (i < j) {
+    while (arr[i] <= pivot && i <= high - 1) {
+      // This gives first index that is greater than pivot
+      i++;
+    }
+    while (arr[j] > pivot && j >= low + 1) {
+      // This gives first index that is smaller than pivot
+      j--;
+    }
+    if (i < j) {
+      swap(arr[i], arr[j]);
+    }
+    // We swap them we do till all Smaller on the left and larger on the right
+  }
+  // TO position the first that is pivot at the right place after this Pivot
+  // gets to the right position in the array
+  swap(arr[low], arr[j]);
+  return j;
+}
+
+void quickSort(vector<int> &arr, int low, int high) {
+  // Divide and Conquer Algorithm
+  if (low >= high)
+    return;
+
+  int partitionIndex = getPartIdx(arr, low, high);
+  quickSort(arr, low, partitionIndex - 1);
+  quickSort(arr, partitionIndex + 1, high);
+
+  // TC O(N Log N)
+  // SC O(1)
+  // Pick a Pivot
+  // Place it in correct place in the sorted array
+  // How to Place
+  // Smaller on the left and larger on the right
+}
 int main() {
   cout << "Sorting" << endl;
   // Selction Sort
@@ -168,6 +208,14 @@ int main() {
 
   cout << "Sorted Array: ";
   for (auto it : arr4) {
+    cout << it << " ";
+  }
+  cout << endl;
+  vector<int> arr5 = {23, 43, 23, 56, 3, 8};
+  quickSort(arr5, 0, arr5.size() - 1);
+
+  cout << "Quick Sort Sorted Array: ";
+  for (auto it : arr5) {
     cout << it << " ";
   }
   cout << endl;
