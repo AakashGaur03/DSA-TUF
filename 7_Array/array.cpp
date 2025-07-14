@@ -72,6 +72,63 @@ bool checkArraySorted(vector<int> &arr, int size) {
   }
   return true;
 }
+
+int bruteRemoveDuplicateElements(vector<int> &arr, int size) {
+  // TC (N logn + N)
+  // SC (N) set
+  set<int> st;
+
+  // N Log n
+  for (int i = 0; i < size; i++) {
+    st.insert(arr[i]);
+  }
+
+  for (auto it : st) {
+    cout << it << " ";
+  }
+  int index = 0;
+
+  // N
+  for (auto it2 : st) {
+    arr[index] = it2;
+    index++;
+  }
+  arr.resize(index);
+  return index;
+}
+int optimizedRemoveDuplicateElements(vector<int> &arr, int size) {
+  // TC O(N)
+  // SC O(1)
+  int j = 1;
+  int i = 0;
+  while (j < size) {
+    if (arr[i] != arr[j]) {
+      arr[i + 1] = arr[j];
+      i++;
+    }
+    j++;
+  }
+  arr.resize(i + 1);
+  for (auto it : arr) {
+    cout << it << " ";
+  }
+  return i + 1;
+}
+
+void leftRotateArrayByOnePlace(vector<int> &arr, int size) {
+  // TC O(N)
+  // SC O(1) extra space
+  // But in algo we need to mention that we are using O(N) that is existing arr
+  // only
+  int temp = arr[0];
+  for (int i = 1; i < size; i++) {
+    arr[i - 1] = arr[i];
+  }
+  arr[size - 1] = temp;
+  for (auto it : arr) {
+    cout << it << " ";
+  }
+}
 int main() {
   cout << "Array" << endl;
   // Data Structure that contains similar data type
@@ -87,8 +144,9 @@ int main() {
 
   // Largest Element in array
   // arr[] = [ 3, 2, 1, 5, 2 ]
-  vector<int> arr = {3, 2, 1, 5, 2, 12, 12};
+  // vector<int> arr = {3, 2, 1, 5, 2, 12, 12};
   // vector<int> arr = {1, 2, 3, 4, 5};
+  vector<int> arr = {1, 1, 2, 3, 3, 3, 5, 12, 12};
 
   // int res = bruteLargestElement(arr, arr.size());
   // cout << "Largest Elem is :" << res << endl;
@@ -100,8 +158,23 @@ int main() {
   // cout << "Better Second Largest Elem is :" << res2 << endl;
   // int res3 = optimalSecondLargestElement(arr, arr.size());
   // cout << "Optimal Second Largest Elem is :" << res3 << endl;
-  bool res3 = checkArraySorted(arr, arr.size());
-  cout << "Sorted Or Not :" << res3 << endl;
+  // bool res3 = checkArraySorted(arr, arr.size());
+  // cout << "Sorted Or Not :" << res3 << endl;
 
+  // remove in place from sorted array and return number of unique elements
+  // int result = bruteRemoveDuplicateElements(arr, arr.size());
+  // cout << endl;
+  // for (auto it : arr) {
+  //   cout << it << " ";
+  // }
+  // cout << endl;
+  // cout << "Final Result That is Total Elements :" << result;
+
+  // int optimizedRes = optimizedRemoveDuplicateElements(arr, arr.size());
+  // cout << endl;
+  // cout << "Final Result That is Total Elements Optimized :" << optimizedRes;
+
+  // Left Rotate Array by One Place in place
+  leftRotateArrayByOnePlace(arr, arr.size());
   return 0;
 }

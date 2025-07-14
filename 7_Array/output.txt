@@ -1,2 +1,2 @@
 Array
-Sorted Or Not :0
+1 2 3 3 3 5 12 12 1 
