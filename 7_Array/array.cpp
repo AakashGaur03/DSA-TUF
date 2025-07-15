@@ -129,6 +129,97 @@ void leftRotateArrayByOnePlace(vector<int> &arr, int size) {
     cout << it << " ";
   }
 }
+
+void brureLeftRotateArrayByDPlace(vector<int> &arr, int d, int size) {
+  // TC O(d) + O(n-d) + O(d) => O(d+n)
+  // SC (d)
+  d = d % size;
+
+  vector<int> temp(d);
+  for (int i = 0; i < d; i++) {
+    temp[i] = arr[i];
+  }
+
+  for (int i = d; i < size; i++) {
+    arr[i - d] = arr[i];
+  }
+
+  for (int i = 0; i < d; i++) {
+    arr[size - d + i] = temp[i];
+  }
+}
+void optimalLeftRotateArrayByDPlace(vector<int> &arr, int d, int size) {
+  // Reverse (a,a+d)  O(d)
+  // Reverse (a+d,a+n) O(n-d)
+  // Reverse (a,a+n) O(n)
+  // TC O(2n)
+  // SC O(1)
+
+  // void reverseArray(vector<int> &arr, int start, int end) {
+  //   while (start < end) {
+  //     swap(arr[start], arr[end]);
+  //     start++;
+  //     end--;
+  //   }
+  // }
+  d = d % size;
+  reverse(arr.begin(), arr.begin() + d);
+  reverse(arr.begin() + d, arr.begin() + size);
+  reverse(arr.begin(), arr.begin() + size);
+}
+
+void bruteMoveZeroesToEnd(vector<int> &arr, int size) {
+  // TC O(2N)
+  // SC O(X) X is number of 0
+  // SC O(N) worst case all are zero
+  vector<int> temp;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] != 0) {
+      temp.push_back(arr[i]);
+    }
+  }
+  for (int i = 0; i < temp.size(); i++) {
+    arr[i] = temp[i];
+  }
+  for (int i = temp.size(); i < size; i++) {
+    arr[i] = 0;
+  }
+}
+void optimalMoveZeroesToEnd(vector<int> &arr, int size) {
+  // Two Pointer Approach
+  // swap coming 0 with non zero number
+  // TC O(N)
+  // SC O(1)
+  int j = 0;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] != 0) {
+      swap(arr[i], arr[j]);
+      j++;
+    }
+  }
+  // Use Above Approach for cleaner code unless swap optimization is
+  // specifically required.
+
+  // Use Below Approach if interviewer asks for early exit when no zero, or
+  // minimum swaps. Optinal Approach
+
+  // int j = -1;
+  // for (int i = 0; i < size; i++)
+  // {
+  //   if (arr[i] == 0) {
+  //     j = i;
+  //     break;
+  //   }
+  // }
+  // if (j == -1)
+  //   return;
+  // for (int i = j + 1; i < size; i++) {
+  //   if (arr[i] != 0) {
+  //     swap(arr[i], arr[j]);
+  //     j++;
+  //   }
+  // }
+}
 int main() {
   cout << "Array" << endl;
   // Data Structure that contains similar data type
@@ -146,7 +237,8 @@ int main() {
   // arr[] = [ 3, 2, 1, 5, 2 ]
   // vector<int> arr = {3, 2, 1, 5, 2, 12, 12};
   // vector<int> arr = {1, 2, 3, 4, 5};
-  vector<int> arr = {1, 1, 2, 3, 3, 3, 5, 12, 12};
+  // vector<int> arr = {1, 1, 2, 3, 3, 3, 5, 12, 12};
+  vector<int> arr = {0, 1, 0, 1, 2, 0, 3, 3, 3, 5, 12, 0, 0, 12, 0, 0};
 
   // int res = bruteLargestElement(arr, arr.size());
   // cout << "Largest Elem is :" << res << endl;
@@ -175,6 +267,19 @@ int main() {
   // cout << "Final Result That is Total Elements Optimized :" << optimizedRes;
 
   // Left Rotate Array by One Place in place
-  leftRotateArrayByOnePlace(arr, arr.size());
+  // leftRotateArrayByOnePlace(arr, arr.size());
+  int d = 4;
+  // brureLeftRotateArrayByDPlace(arr, d, arr.size());
+  // optimalLeftRotateArrayByDPlace(arr, d, arr.size());
+
+  // bruteMoveZeroesToEnd(arr, arr.size());
+  optimalMoveZeroesToEnd(arr, arr.size());
+  for (auto it : arr) {
+    cout << it << " ";
+  }
+  {
+    /* code */
+  }
+
   return 0;
 }
