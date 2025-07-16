@@ -220,6 +220,117 @@ void optimalMoveZeroesToEnd(vector<int> &arr, int size) {
   //   }
   // }
 }
+
+int linearSearch(vector<int> arr, int size, int numSearch) {
+  for (int i = 0; i < size; i++) {
+    if (arr[i] == numSearch) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+vector<int> bruteUnionOfSortedArrays(vector<int> arr1, vector<int> arr2) {
+  // TC O(n1 logn) O(n1 logn) + O(n1+n2)
+  // SC O(n1 +n2) for set + O(n1 +n2) for uniqueArr
+  set<int> st;
+  vector<int> unionArr;
+  // O(n1 logn)
+  for (int i = 0; i < arr1.size(); i++) {
+    st.insert(arr1[i]);
+  }
+  // O(n2 logn)
+  for (int i = 0; i < arr2.size(); i++) {
+    st.insert(arr2[i]);
+  }
+  for (auto it : st) {
+    unionArr.push_back(it);
+  }
+  cout << endl;
+  return unionArr;
+}
+vector<int> optimalUnionOfSortedArrays(vector<int> arr1, vector<int> arr2) {
+  // TC O(n1+n2)
+  // SC O(n1+n2) only for uniqueArr
+  int n1 = arr1.size();
+  int n2 = arr2.size();
+  int i = 0;
+  int j = 0;
+  vector<int> unionArr;
+
+  while (i < n1 && j < n2) {
+    if (arr1[i] < arr2[j]) {
+      if (unionArr.size() == 0 || unionArr.back() != arr1[i]) {
+        unionArr.push_back(arr1[i]);
+      }
+      i++;
+    } else {
+      if (unionArr.size() == 0 || unionArr.back() != arr2[j]) {
+        unionArr.push_back(arr2[j]);
+      }
+      j++;
+    }
+  }
+
+  while (j < n2) {
+    if (unionArr.size() == 0 || unionArr.back() != arr2[j]) {
+      unionArr.push_back(arr2[j]);
+    }
+    j++;
+  }
+  while (i < n1) {
+    if (unionArr.size() == 0 || unionArr.back() != arr1[i]) {
+      unionArr.push_back(arr1[i]);
+    }
+    i++;
+  }
+  return unionArr;
+}
+
+vector<int> bruteIntersectionArr(vector<int> arr1, vector<int> arr2) {
+  // TC O(n1 X n2)
+  // SC O(n2)
+  vector<int> intersectedArr;
+  vector<int> visi(arr2.size(), 0);
+  for (int i = 0; i < arr1.size(); i++) {
+    for (int j = 0; j < arr2.size(); j++) {
+      if (arr1[i] == arr2[j] && visi[j] == 0) {
+        intersectedArr.push_back(arr1[i]);
+        visi[j] = 1;
+        break;
+      }
+      if (arr2[j] > arr1[i])
+        break;
+    }
+  }
+  return intersectedArr;
+}
+
+vector<int> optimalIntersectionArr(vector<int> arr1, vector<int> arr2) {
+  // TC O(n1+n2)
+  // SC O(min(n1+n2))
+  vector<int> intersectedArr;
+  int i = 0;
+  int j = 0;
+  int n1 = arr1.size();
+  int n2 = arr2.size();
+  while (i < n1 && j < n2) {
+    if (arr1[i] < arr2[j]) {
+      i++;
+    } else if (arr2[j] < arr1[i]) {
+      j++;
+    } else
+    // (arr1[i] == arr2[j])
+    {
+      intersectedArr.push_back(arr1[i]);
+      i++;
+      j++;
+    }
+  }
+  return intersectedArr;
+}
+
 int main() {
   cout << "Array" << endl;
   // Data Structure that contains similar data type
@@ -239,6 +350,8 @@ int main() {
   // vector<int> arr = {1, 2, 3, 4, 5};
   // vector<int> arr = {1, 1, 2, 3, 3, 3, 5, 12, 12};
   vector<int> arr = {0, 1, 0, 1, 2, 0, 3, 3, 3, 5, 12, 0, 0, 12, 0, 0};
+  vector<int> arr1 = {1, 2, 2, 3, 4, 4, 5};
+  vector<int> arr2 = {2, 2, 3, 5, 5, 8};
 
   // int res = bruteLargestElement(arr, arr.size());
   // cout << "Largest Elem is :" << res << endl;
@@ -273,13 +386,31 @@ int main() {
   // optimalLeftRotateArrayByDPlace(arr, d, arr.size());
 
   // bruteMoveZeroesToEnd(arr, arr.size());
-  optimalMoveZeroesToEnd(arr, arr.size());
-  for (auto it : arr) {
+  // optimalMoveZeroesToEnd(arr, arr.size());
+  // for (auto it : arr) {
+  //   cout << it << " ";
+  // }
+  // cout << endl;
+  // cout << "Index is :" << linearSearch(arr, arr.size(), 1);
+
+  // Union of two sorted Array
+  // vector<int> res = bruteUnionOfSortedArrays(arr1, arr2);
+
+  // for (auto it : res) {
+  //   cout << it << " ";
+  // }
+  // vector<int> res = optimalUnionOfSortedArrays(arr1, arr2);
+  // cout << "Optimal :";
+  // for (auto it : res) {
+  //   cout << it << " ";
+  // }
+  // vector<int> res = bruteIntersectionArr(arr1, arr2);
+  // for (auto it : res) {
+  //   cout << it << " ";
+  // }
+  vector<int> res = optimalIntersectionArr(arr1, arr2);
+  for (auto it : res) {
     cout << it << " ";
   }
-  {
-    /* code */
-  }
-
   return 0;
 }
