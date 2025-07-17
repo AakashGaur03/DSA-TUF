@@ -1,2 +1,2 @@
-Array
-2 2 3 5 
+ Array 2
+Number that appears once is : 4 
