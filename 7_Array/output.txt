@@ -1,2 +1,3 @@
- Array 2
-Number that appears once is : 4 
+ Array 3
+
+Ans :4
