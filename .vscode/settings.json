@@ -10,6 +10,19 @@
 		"map": "cpp",
 		"__hash_table": "cpp",
 		"unordered_map": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"__bit_reference": "cpp",
+		"__split_buffer": "cpp",
+		"array": "cpp",
+		"deque": "cpp",
+		"initializer_list": "cpp",
+		"string_view": "cpp",
+		"__tree": "cpp",
+		"forward_list": "cpp",
+		"list": "cpp",
+		"regex": "cpp",
+		"set": "cpp",
+		"unordered_set": "cpp",
+		"valarray": "cpp"
 	}
 }

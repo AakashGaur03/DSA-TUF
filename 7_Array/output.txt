@@ -1,3 +1,2 @@
- Array 3
-
-Ans :4
+ Array 4
+Pair found: 1, 3
