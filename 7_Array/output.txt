@@ -1,2 +1,2 @@
- Array 5
-000111112222
+ Array 6
+Result is: 2
