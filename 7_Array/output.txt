@@ -1,2 +1,1 @@
- Array 6
-Result is: 2
+Array 72 6Result: 7
