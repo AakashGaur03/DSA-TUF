@@ -1,1 +1,2 @@
-Array 72 6Result: 7
+Array 8
+2 -2 4 -3 3 -5 
