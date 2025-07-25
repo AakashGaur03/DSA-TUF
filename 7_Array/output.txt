@@ -1,1 +1,1 @@
-Next Permutation: 3 2 1 
+Array 1122 12 6 

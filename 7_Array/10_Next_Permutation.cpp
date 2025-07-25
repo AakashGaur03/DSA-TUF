@@ -51,6 +51,52 @@ vector<int> bruteNextPermutation(vector<int> &nums) {
   return nums;
 }
 
+vector<int> OptimalNextPermutation(vector<int> &arr, int size) {
+
+  // TC O(3N)
+  // SC O(N)
+
+  // 2 1 5 4 3 0 0
+  // 1) Longer Prefix Match
+  // Figure out breakpoint
+  // a[i]< a[i+1]
+
+  // 2) Find greater than the number but smallest
+  // here 3 that is greater than 1 and is smallest
+  // swap it with the number
+  // 2 3 5 4 1 0 0
+  // 3) Start from small number and place in sorted order or we can just simply
+  // reverse it too we will get the result
+
+  // 2 3 0 0 1 4 5
+
+  // Step 1
+  int breakIndex = -1;
+  for (int i = size - 2; i >= 0; i--) {
+    if (arr[i] < arr[i + 1]) {
+      breakIndex = i;
+      break;
+    }
+  }
+  if (breakIndex == -1) {
+    // It is biggest Number
+    // Just perform the reverse of it
+    reverse(arr.begin(), arr.end());
+    return arr;
+  }
+
+  // Step 2
+  for (int i = size - 1; i > breakIndex; i--) {
+    if (arr[i] > arr[breakIndex]) {
+      swap(arr[i], arr[breakIndex]);
+      break;
+    }
+  }
+
+  // Step 3
+  reverse(arr.begin() + breakIndex + 1, arr.end());
+  return arr;
+}
 int main() {
   vector<int> arr = {3, 1, 2};
   // 1) Generate All Permutation Sorted Order
@@ -59,16 +105,18 @@ int main() {
 
   // TO DO Watch Recusrion Playlist LEC 12 13
   // O(N! N)
-  vector<int> nextPerm = bruteNextPermutation(arr);
+  // vector<int> nextPerm = bruteNextPermutation(arr);
 
-  cout << "Next Permutation: ";
-  for (int num : nextPerm) {
-    cout << num << " ";
-  }
-  cout << endl;
+  // cout << "Next Permutation: ";
+  // for (int num : nextPerm) {
+  //   cout << num << " ";
+  // }
+  // cout << endl;
 
   // better Solution
-  next_permutation(arr.begin(), arr.end());
+  // next_permutation(arr.begin(), arr.end());
+
+  OptimalNextPermutation(arr, arr.size());
   return 0;
 }
 
