@@ -1,3 +1,3 @@
-Array 5
-Number of Subarray with XOR K
-4
+Array 6
+Merge Overlapping Intervals
+Merged Intervals: [1,5] [6,7] [8,12] 
