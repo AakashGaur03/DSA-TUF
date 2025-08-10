@@ -1,3 +1,4 @@
-7 Merge Sorted Arrays Without Extra Space
-Merged arr1: 1 2 3 4 7 
-Merged arr2: 8 9 10 
+8 Find Missing and Repeated Number
+repeating : 1
+missing : 5
+1 5 
