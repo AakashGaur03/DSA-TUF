@@ -1,4 +1,2 @@
-8 Find Missing and Repeated Number
-repeating : 1
-missing : 5
-1 5 
+9 Count Inversion in An Array
+8
