@@ -1,2 +1,6 @@
-Binary Search
-22
+2 Lower and Upper Bound
+ANS : 4
+ANS : 4
+ANS : 4
+Upper : 0
+Upper : 9
