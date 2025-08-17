@@ -1,6 +1,3 @@
-2 Lower and Upper Bound
-ANS : 4
-ANS : 4
-ANS : 4
-Upper : 0
-Upper : 9
+BS 2
+3 5 
+3 5 
