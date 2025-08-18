@@ -129,7 +129,7 @@ vector<int> optimalBSFirstAndLast(vector<int> arr, int size, int target) {
 }
 
 int main() {
-  cout << "BS 2" << endl;
+  cout << "BS 3" << endl;
 
   // First and LAst Occurance of x;
   //  Index   0 1 2 3 4 5  6  7
