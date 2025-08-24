@@ -1,3 +1,3 @@
-BS 8_2
-3
-3
+9 Koko Eating Bananas
+Brute Force Result: 4
+Optimal Result: 4
