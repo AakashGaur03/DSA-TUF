@@ -87,6 +87,15 @@ int main() {
   cout << "BS 14" << endl;
   // Now pattern starts of finding like Minimum of Maximum or
   // Maximum of minimum
+
+  // You are given an array of N stall positions (integers, not necessarily
+  // sorted).
+
+  // You have C cows that you want to place in these stalls.
+
+  // The rule is: place cows in such a way that the minimum distance between any
+  // two cows is as large as possible.
+
   vector<int> arr = {0, 3, 4, 7, 10};
   int cows = 4;
   int res = bruteAggressiveCow(arr, arr.size(), cows);
