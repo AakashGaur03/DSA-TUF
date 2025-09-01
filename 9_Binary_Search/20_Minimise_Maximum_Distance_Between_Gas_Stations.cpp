@@ -175,8 +175,10 @@ long double optimalBSGasStations(vector<int> arr, int size, int k) {
     long double mid = (low + high) / (2.0);
     int cnt = numberOfGasStationsRequired(mid, arr);
     if (cnt > k) {
+      // Eliminate left half that is too small to be an answer
       low = mid;
     } else {
+      // Eliminate right half that is big to be an answer
       high = mid;
     }
   }
