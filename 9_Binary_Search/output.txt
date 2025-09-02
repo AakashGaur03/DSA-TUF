@@ -1,4 +1,2 @@
-20 BS
-0.5
-0.5
-0.500001
+21 Median Of Two Sorted Arrays Different SizeMedian = 5
+Median = 5
