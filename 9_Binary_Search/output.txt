@@ -1,2 +1,4 @@
-21 Median Of Two Sorted Arrays Different SizeMedian = 5
+21 Median Of Two Sorted Arrays Different Size
+Median = 5
+Median = 5
 Median = 5
