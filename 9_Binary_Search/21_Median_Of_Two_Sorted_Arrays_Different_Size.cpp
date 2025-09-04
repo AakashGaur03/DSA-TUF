@@ -178,3 +178,33 @@ int main() {
   cout << "Median = " << ans3 << endl;
   return 0;
 }
+
+// // mid1 = how many elements we are taking from array a
+// // mid2 = how many elements we are taking from array b (k - mid1)
+
+// // Initialize left and right values for both arrays
+// int l1 = INT_MIN, l2 = INT_MIN; // "last element on the left side" of each
+// array int r1 = INT_MAX,
+//     r2 = INT_MAX; // "first element on the right side" of each array
+
+// // ---------- Right boundaries ----------
+
+// // If we haven't taken all elements from a, then the right side of a exists
+// // r1 = first element on the right side of partition in array a
+// if (mid1 < n1) {
+//   r1 = a[mid1];
+// }
+
+// // If we haven't taken all elements from b, then the right side of b exists
+// // r2 = first element on the right side of partition in array b
+// if (mid2 < n2) {
+//   r2 = b[mid2];
+// }
+
+// // ---------- Left boundaries ----------
+
+// // If we have taken at least 1 element from a, then left side exists
+// // l1 = last element on the left side of partition in array a
+// if (mid1 - 1 >= 0) {
+//   l1 = a[mid1 - 1];
+// }

@@ -1,4 +1,1 @@
-21 Median Of Two Sorted Arrays Different Size
-Median = 5
-Median = 5
-Median = 5
+22 Kth Element Of Two Sorted ArrayMedian = 3
