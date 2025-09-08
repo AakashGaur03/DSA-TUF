@@ -18,7 +18,7 @@ bool binarySearch(vector<int> &arr, int target) {
 }
 
 bool betterSearch2Dmatrix(vector<vector<int>> mat, int target) {
-  // TC O(n) + O(log 2 m)
+  // TC O(n * log m)
   int n = mat.size();
   int m = mat[0].size();
 
@@ -64,7 +64,7 @@ int main() {
   // Approach 1 Better
   // For each row we check if target is between first and last of row
   // If yes then apply binary search on that row and true or false
-  // TC O(n) + O(log 2 m)
+  // TC O(n * log m)
 
   // Approach 3
   // we convert each element ib hypothetical single indexed array
