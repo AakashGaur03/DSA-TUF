@@ -1,2 +1,4 @@
-Iterative Postorder Traversal with 2 Stack Example:
-Postorder Traversal: 4 5 2 3 1 
+6 Preorder Inorder Postorder traversals In One Traversal
+Preorder: 1 2 4 5 3 
+Inorder: 4 2 5 1 3 
+Postorder: 4 5 2 3 1 

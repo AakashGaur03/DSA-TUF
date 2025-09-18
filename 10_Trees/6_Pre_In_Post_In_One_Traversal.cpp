@@ -1,8 +1,89 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct TreeNode {
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+// Function to get Preorder, Inorder, Postorder in one traversal
+void allInOne(TreeNode *root) {
+  if (root == NULL)
+    return;
+
+  stack<pair<TreeNode *, int>> st;
+  st.push({root, 1});
+
+  vector<int> pre, in, post;
+
+  while (!st.empty()) {
+    auto it = st.top();
+    st.pop();
+
+    // Preorder case
+    if (it.second == 1) {
+      pre.push_back(it.first->val);
+      it.second++;
+      st.push(it); // push back with incremented state
+
+      if (it.first->left != NULL) {
+        st.push({it.first->left, 1});
+      }
+    }
+    // Inorder case
+    else if (it.second == 2) {
+      in.push_back(it.first->val);
+      it.second++;
+      st.push(it);
+
+      if (it.first->right != NULL) {
+        st.push({it.first->right, 1});
+      }
+    }
+    // Postorder case
+    else {
+      post.push_back(it.first->val);
+    }
+  }
+
+  // Print results
+  cout << "Preorder: ";
+  for (int x : pre)
+    cout << x << " ";
+  cout << "\n";
+
+  cout << "Inorder: ";
+  for (int x : in)
+    cout << x << " ";
+  cout << "\n";
+
+  cout << "Postorder: ";
+  for (int x : post)
+    cout << x << " ";
+  cout << "\n";
+}
+
 int main() {
-  cout << "6 Preorder Inorder Postorder traversals In One Traversal";
+  cout << "6 Preorder Inorder Postorder traversals In One Traversal\n";
+
+  /*
+     Example Tree:
+           1
+          / \
+         2   3
+        / \
+       4   5
+  */
+
+  TreeNode *root = new TreeNode(1);
+  root->left = new TreeNode(2);
+  root->right = new TreeNode(3);
+  root->left->left = new TreeNode(4);
+  root->left->right = new TreeNode(5);
+
+  allInOne(root);
+
   // Single stack to find out all three traversals
   // we will store node,number in an stack (LIFO)
   // RULES
