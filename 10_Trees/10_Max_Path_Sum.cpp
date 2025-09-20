@@ -1,11 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-  cout << "" << endl;
-  return 0;
-}
-
 struct TreeNode {
   int val; // The data stored in the node (here it's an integer value)
   TreeNode *left, *right; // Pointers to the left and right child nodes
@@ -15,3 +10,8 @@ struct TreeNode {
   // initially)
   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
+int main() {
+  cout << "10 Max Path Sum" << endl;
+  return 0;
+}
