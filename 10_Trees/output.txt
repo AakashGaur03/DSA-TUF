@@ -1,1 +1,2 @@
-9 Diameter of a Binary TreeDiameter Binary Tree: 4
+11 Check if Two Trees are Identical or Not
+The trees are identical.
