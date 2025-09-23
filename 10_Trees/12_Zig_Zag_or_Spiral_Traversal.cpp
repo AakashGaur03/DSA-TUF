@@ -139,3 +139,21 @@ int main() {
 // result = [[1],[3,2],[4,5,6,7]]
 //
 // Queue empty → stop
+
+//        1
+//      /   \
+//     2     3
+//    / \   / \
+//   4   5 6   7
+// We take Root 1
+// we take a leftToright Booelan that is true in start
+// We put that in queue [1]
+// ans 1 acc to left to right true
+// leftToright = !leftToright
+// traverse left right of element in queue 2,3
+// put that in queue [2,3]
+// ans 1 3 2 acc to left to right false
+// leftToright = !leftToright
+// we pop it out [1] out [4 5 6 7]
+// we get 4 5 from left right of 2 and 6 7 from left right of 3
+// ans 1 3 2 4 5 6 7 acc to left to right true
