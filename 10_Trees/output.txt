@@ -1,2 +1,2 @@
-18 Left View of Tree
-Left View: 1 2 5 
+20 Print Root To Node Path
+Path from Root to Node 5: 1 2 5 
