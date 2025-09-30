@@ -6,6 +6,26 @@ int main() {
   return 0;
 }
 
+class Node {
+public:
+  int data;
+  Node *next;
+
+public:
+  Node(int data1, Node *next1) {
+    data = data1;
+    next = next1;
+  }
+
+  // we can also add if we dont want to assign null
+  // in code again and again
+public:
+  Node(int data1) {
+    data = data1;
+    next = nullptr;
+  }
+};
+
 struct TreeNode {
   int val; // The data stored in the node (here it's an integer value)
   TreeNode *left, *right; // Pointers to the left and right child nodes
