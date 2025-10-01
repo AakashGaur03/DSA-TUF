@@ -81,6 +81,79 @@ Node *removeTail(Node *head) {
   return head;
 }
 
+Node *removeKthElement(Node *head, int k) {
+  // TC O(K)
+  if (head == NULL)
+    return head;
+  Node *temp = head;
+  if (k == 1) {
+    head = head->next;
+    delete temp;
+    return head;
+  }
+  int cnt = 0;
+  Node *prev = NULL;
+  while (temp != NULL) {
+    cnt++;
+    if (cnt == k) {
+      prev->next = prev->next->next;
+      delete (temp);
+      // Same as Delete
+      // free(temp);
+      break;
+    } else {
+      prev = temp;
+      temp = temp->next;
+    }
+  }
+  return head;
+}
+Node *removeElement(Node *head, int elem) {
+  // TC O(K)
+  if (head == NULL)
+    return head;
+  Node *temp = head;
+  if (temp->data == elem) {
+    head = head->next;
+    delete temp;
+    return head;
+  }
+  Node *prev = NULL;
+  while (temp != NULL) {
+
+    if (temp->data == elem) {
+      prev->next = prev->next->next;
+      delete (temp);
+      // Same as Delete
+      // free(temp);
+      break;
+    } else {
+      prev = temp;
+      temp = temp->next;
+    }
+  }
+  return head;
+}
+
+Node *insertValHead(Node *head, int val) {
+  // TC O(1)
+  Node *temp = new Node(val, head); // Value and where to point
+  return temp;                      // Returns as new Head
+}
+
+Node *insertValTail(Node *head, int val) {
+  if (head == NULL) {
+    return new Node(val);
+  }
+  Node *temp = head;
+  while (temp->next != NULL) { // here we are checking value
+    temp = temp->next;
+  }
+  Node *newNode = new Node(val);
+  temp->next = newNode;
+  return head;
+}
+
 int main() {
   cout << "2 L2 Deletion Insertion LL " << endl;
   // we will be solving 4 varities for Each that is
@@ -102,6 +175,26 @@ int main() {
   printLL(head);
 
   // 3) Delete Kth element of LL
+  head = removeKthElement(head, 4);
+  printLL(head);
+
+  // 4) Delete element of LL
+  head = removeElement(head, 4);
+  printLL(head);
+
+  // 4) Delete element of LL
+  head = removeElement(head, 5);
+  printLL(head);
+
+  // INSERTION
+
+  // 1) Inserting at Head
+  head = insertValHead(head, 100);
+  printLL(head);
+
+  // 2) Inserting at Tail
+  head = insertValTail(head, 59);
+  printLL(head);
 
   return 0;
 }
