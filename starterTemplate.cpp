@@ -6,6 +6,8 @@ int main() {
   return 0;
 }
 
+// We need to keep Unique class name
+// Singly LL
 class Node {
 public:
   int data;
@@ -23,6 +25,31 @@ public:
   Node(int data1) {
     data = data1;
     next = nullptr;
+  }
+};
+
+// We need to keep Unique class name
+// Doubly LL
+class Node {
+public:
+  int data;
+  Node *next;
+  Node *back;
+
+public:
+  Node(int data1, Node *next1, Node *back1) {
+    data = data1;
+    next = next1;
+    back = back1;
+  }
+
+  // we can also add if we dont want to assign null
+  // in code again and again
+public:
+  Node(int data1) {
+    data = data1;
+    next = nullptr;
+    back = nullptr;
   }
 };
 

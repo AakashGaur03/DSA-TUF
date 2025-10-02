@@ -154,6 +154,53 @@ Node *insertValTail(Node *head, int val) {
   return head;
 }
 
+Node *insertPosition(Node *head, int el, int k) {
+  if (head == NULL) {
+    if (k == 1) {
+      return new Node(el);
+    } else {
+      return head;
+    }
+  }
+  if (k == 1) {
+    Node *newHead = new Node(el, head);
+    return newHead; // returns it as new Head
+  }
+  int cnt = 0;
+  Node *temp = head;
+  while (temp != NULL) {
+    cnt++;
+    if (cnt == (k - 1)) {
+      Node *newNode = new Node(el, temp->next);
+      temp->next = newNode;
+      break;
+    } else {
+      temp = temp->next;
+    }
+  }
+  return head;
+}
+Node *insertElBeforeValue(Node *head, int el, int val) {
+  if (head == NULL) {
+    return NULL; // No value Exist so how can we insert before that
+  }
+  if (head->data == val) {
+    Node *newHead = new Node(el, head);
+    return newHead; // returns it as new Head
+  }
+  Node *temp = head;
+  while (temp->next != NULL) {
+    if (val == temp->next->data) {
+      Node *newNode = new Node(el, temp->next);
+      temp->next = newNode;
+      break;
+    } else {
+      temp = temp->next;
+    }
+  }
+  return head;
+}
+
 int main() {
   cout << "2 L2 Deletion Insertion LL " << endl;
   // we will be solving 4 varities for Each that is
@@ -194,6 +241,17 @@ int main() {
 
   // 2) Inserting at Tail
   head = insertValTail(head, 59);
+  printLL(head);
+
+  // 3) Inserting at Position
+  head = insertPosition(head, 9, 2);
+  printLL(head);
+  // 3) Inserting at Position
+  head = insertPosition(head, 29, 5);
+  printLL(head);
+
+  // 4) Inserting element before value
+  head = insertElBeforeValue(head, 114, 5);
   printLL(head);
 
   return 0;
