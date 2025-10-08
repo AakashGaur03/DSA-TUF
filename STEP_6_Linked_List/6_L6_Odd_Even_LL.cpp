@@ -110,6 +110,31 @@ Node *oddEvenLL(Node *head) {
   return head;
 }
 
+Node *optimalOddEvenLL(Node *head) {
+  // TC O(N/2 *2)
+  // SC O(1)
+  // Refer to 6_L6_Odd_Even_LL_1 Image
+  if (head == NULL || head->next == NULL) {
+    return head;
+  }
+  Node *odd = head;
+  Node *even = head->next;
+  Node *evenHead = head->next;
+
+  while (even != NULL && even->next != NULL) {
+    odd->next = odd->next->next;
+    even->next = even->next->next;
+
+    odd = odd->next;   // the odd->next already points to the next odd node.
+    even = even->next; // the even->next already points to the next even node.
+  }
+
+  // For last odd to point to Even
+  odd->next = evenHead;
+
+  return head;
+}
+
 int main() {
   cout << "5 Adding Two Numbers" << endl;
   vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8};
