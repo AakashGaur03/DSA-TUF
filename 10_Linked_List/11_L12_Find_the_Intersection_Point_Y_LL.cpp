@@ -117,6 +117,55 @@ Node *betterIntersectionYLL(Node *head1, Node *head2) {
   }
 }
 
+Node *optimzedIntersectionYLL(Node *head1, Node *head2) {
+
+  // TC O(N1+N2) N1+N2 for traversing all nodes
+  // SC O(1)
+
+  // we will iterate both the LL simultaneously
+  // When one LL reaches to end to start it from start of another LL
+  // same for both
+
+  // Like if LL1 gets exhausted we will start it from LL2 , LL2's orginal
+  // traversal will be its placed
+
+  // Likewise if LL2 gets exhausted we will start it from LL1 , LL1's orginal
+  // traversal will be its placed
+
+  // temp1 reaches to null take to head2
+  // temp2 reaches to null take to head1
+
+  // When both temp1 and temp2 if swapped once then if there is no common
+  // intersection they both will collide at same time to NULL so means
+  // NO INTERSECTION
+
+  if (head1 == NULL || head2 == NULL) {
+    return NULL;
+  }
+  Node *temp1 = head1;
+  Node *temp2 = head2;
+
+  while (temp1 != temp2) { // also checks for the first time
+    temp1 = temp1->next;
+    temp2 = temp2->next;
+
+    if (temp1 == temp2) {
+      return temp1;
+    }
+    // Below one will be covered in temp1==temp2 only
+    // if (temp1 == NULL && temp2 == NULL) {
+    //   return NULL;
+    // }
+    if (temp1 == NULL) {
+      temp1 = head2;
+    }
+    if (temp2 == NULL) {
+      temp2 = head1;
+    }
+  }
+  return temp1;
+}
+
 int main() {
   // creation of both lists
   Node *head = NULL;
