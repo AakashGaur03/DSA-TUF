@@ -1,3 +1,7 @@
-Detect a loop or cycle in LL
-Loop detected (using map method)
-Loop detected (using optimized method)
+4 Find Middle of LL
+12 5 8 7 6 
+12 5 8 7 
+12 5 7 6 
+12 5 7 
+12 5 6 
+12 7 
