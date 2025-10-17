@@ -1,7 +1,3 @@
-4 Find Middle of LL
-12 5 8 7 6 
-12 5 8 7 
-12 5 7 6 
-12 5 7 
-12 5 6 
-12 7 
+Detect a loop or cycle in LL
+Loop starts at node with value: 5
+Loop starts at node with value: 5
