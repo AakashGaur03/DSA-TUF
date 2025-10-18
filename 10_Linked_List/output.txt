@@ -1,3 +1,6 @@
-Detect a loop or cycle in LL
-Loop starts at node with value: 5
-Loop starts at node with value: 5
+16 L19 Find Pairs with Given Sum in Sorted DLL
+1 2 3 4 9 
+1,4
+2,3
+optimzed 1,4
+optimzed 2,3
