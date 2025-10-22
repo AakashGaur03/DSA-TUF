@@ -58,11 +58,72 @@ Node *convertArr2LL(vector<int> arr) {
   return head;
 }
 
+Node *merge2LL(Node *head1, Node *head2) {
+  // TC O(N1 + N2 + NLogN + N)
+  // SC O(N + N) N for storing array and N for returning ans
+  Node *temp1 = head1;
+  Node *temp2 = head2;
+  vector<int> arr;
+  while (temp1 != NULL) { // O(N1)
+    arr.push_back(temp1->data);
+    temp1 = temp1->next;
+  }
+  while (temp2 != NULL) { // O(N2)
+    arr.push_back(temp2->data);
+    temp2 = temp2->next;
+  }
+
+  sort(arr.begin(), arr.end());       // O(NLogN)
+  Node *newHead = convertArr2LL(arr); // O(N)
+  return newHead;
+}
+
+Node *optimizedMerge2LL(Node *head1, Node *head2) {
+  // TC O(N1+N2)
+  // SC O(1)
+  Node *temp1 = head1;
+  Node *temp2 = head2;
+  Node *dummyNode = new Node(-1);
+  Node *curr = dummyNode;
+
+  while (temp1 != NULL && temp2 != NULL) {
+    if (temp1->data < temp2->data) {
+      curr->next = temp1;
+      curr = temp1;
+      temp1 = temp1->next;
+    } else {
+      curr->next = temp2;
+      curr = temp2;
+      temp2 = temp2->next;
+    }
+  }
+  while (temp1 != NULL) {
+    curr->next = temp1;
+    curr = temp1;
+    temp1 = temp1->next;
+  }
+  while (temp2 != NULL) {
+    curr->next = temp2;
+    curr = temp2;
+    temp2 = temp2->next;
+  }
+
+  return dummyNode->next;
+}
+
 int main() {
   cout << "20 L23 Merge Two Sorted LL" << endl;
   vector<int> arr = {1, 2, 3, 4, 5};
+  vector<int> arr2 = {1, 3, 3, 6, 11, 15};
   Node *head = convertArr2LL(arr);
+  Node *head2 = convertArr2LL(arr2);
   printLL(head);
+  printLL(head2);
+
+  Node *head3 = merge2LL(head, head2);
+  printLL(head3);
+  Node *head4 = optimizedMerge2LL(head, head2);
+  printLL(head4);
 
   return 0;
 }
