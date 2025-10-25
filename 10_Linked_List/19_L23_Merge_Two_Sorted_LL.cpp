@@ -111,6 +111,38 @@ Node *optimizedMerge2LL(Node *head1, Node *head2) {
   return dummyNode->next;
 }
 
+Node *optimizedMerge2LLPractice(Node *head1, Node *head2) {
+  Node *dummyNode = new Node(-1);
+  Node *temp = dummyNode;
+  Node *temp1 = head1;
+  Node *temp2 = head2;
+
+  while (temp1 != NULL && temp2 != NULL) {
+    if (temp1->data < temp2->data) {
+      temp = temp1;
+      temp1 = temp1->next;
+
+    } else {
+      temp = temp2;
+      temp2 = temp2->next;
+    }
+    temp = temp->next;
+  }
+
+  while (temp1 != NULL) {
+    temp = temp1;
+    temp1 = temp1->next;
+    temp = temp->next;
+  }
+  while (temp2 != NULL) {
+    temp = temp2;
+    temp2 = temp2->next;
+    temp = temp->next;
+  }
+
+  return dummyNode->next;
+}
+
 int main() {
   cout << "20 L23 Merge Two Sorted LL" << endl;
   vector<int> arr = {1, 2, 3, 4, 5};
@@ -124,6 +156,8 @@ int main() {
   printLL(head3);
   Node *head4 = optimizedMerge2LL(head, head2);
   printLL(head4);
+  Node *head5 = optimizedMerge2LLPractice(head, head2);
+  printLL(head5);
 
   return 0;
 }
