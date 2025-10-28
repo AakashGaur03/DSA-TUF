@@ -1,3 +1,4 @@
 22 L25 Merge K sorted Linked List
-1 1 1 2 3 3 3 4 5 5 6 6 11 15 23 67 
-1 1 1 2 3 3 3 4 5 5 6 6 11 15 23 67 
+Naive mergeKSortedList: 1 1 1 2 3 3 3 4 5 5 6 6 11 15 23 67 
+Better mergeKSortedList: 1 1 1 2 3 3 3 4 5 5 6 6 11 15 23 67 
+Optimal mergeKSortedList: 1 1 1 2 3 3 3 4 5 5 6 6 11 15 23 67 
