@@ -4,3 +4,5 @@ Original Linked List:
 1 -> Random: 7, 8 -> Random: 1, 7 -> Random: 8, 12 -> Random: 3, 3 -> Random: 1, 
 Cloned Linked List:
 1 -> Random: 7, 8 -> Random: 1, 7 -> Random: 8, 12 -> Random: 3, 3 -> Random: 1, 
+Cloned Linked List optimal Approach:
+1 -> Random: 7, 8 -> Random: 1, 7 -> Random: 8, 12 3 -> Random: 1, 
