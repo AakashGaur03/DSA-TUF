@@ -1,8 +1,7 @@
-24 Clone a LinkedList with Next and Random Pointers
-Copy List with Random Pointers
-Original Linked List:
-1 -> Random: 7, 8 -> Random: 1, 7 -> Random: 8, 12 -> Random: 3, 3 -> Random: 1, 
-Cloned Linked List:
-1 -> Random: 7, 8 -> Random: 1, 7 -> Random: 8, 12 -> Random: 3, 3 -> Random: 1, 
-Cloned Linked List optimal Approach:
-1 -> Random: 7, 8 -> Random: 1, 7 -> Random: 8, 12 3 -> Random: 1, 
+25 L28 Design a Browser History LinkedList Implementation
+github.com
+linkedin.com
+github.com
+linkedin.com
+twitter.com
+github.com
