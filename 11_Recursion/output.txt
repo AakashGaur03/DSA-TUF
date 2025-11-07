@@ -1,1 +1,4 @@
-6 L6 Recursion on Subsequences
+7 L7 All Kind of Patterns in Recursion
+1 1 
+2 
+1 1 
