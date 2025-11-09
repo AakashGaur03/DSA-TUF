@@ -1,6 +1,2 @@
-7 L7 All Kind of Patterns in Recursion
-1 1 
-2 
-1 1 
-
-Count is :2
+8 Merge Sort
+1 1 2 2 3 4 4 5 6 
