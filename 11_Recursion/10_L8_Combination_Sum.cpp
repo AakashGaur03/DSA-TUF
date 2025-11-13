@@ -1,32 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printCombinationSum(vector<int> arr, int target, int index, vector<int> ds,
-                         int sum) {
+void findCombinations(int index, vector<int> arr, int target, vector<int> ds,
+                      vector<vector<int>> &ans) {
   // TC O(2^t *k)
   // t is target and k is average length
   // SC O(k*x) x is combinations // Hypothetical
   // Depends on number of combinations
-  int n = arr.size();
-  if (sum == target) {
-    for (auto it : ds) {
-      cout << it << " ";
-    }
-    cout << endl;
-    return;
-  }
-  if (index == arr.size() || sum > target) {
-    return;
-  }
 
-  // Pick
-  ds.push_back(arr[index]);
-  sum += arr[index];
-  printCombinationSum(arr, target, index, ds, sum);
+  if (index == arr.size()) {
+    if (target == 0) {
+      ans.push_back(ds);
+    }
+    return;
+  }
+  // Pick the Element (if Doesnt exceeds)
+  if (arr[index] <= target) {
+    ds.push_back(arr[index]);
+    findCombinations(index, arr, target - arr[index], ds, ans);
+    ds.pop_back();
+  }
   // Not Pick
-  ds.pop_back();
-  sum -= arr[index];
-  printCombinationSum(arr, target, index + 1, ds, sum);
+  findCombinations(index + 1, arr, target, ds, ans);
 }
 
 int main() {
@@ -37,8 +32,15 @@ int main() {
   vector<int> arr = {2, 3, 6, 7};
   int target = 7;
   vector<int> ds;
+  vector<vector<int>> ans;
 
-  printCombinationSum(arr, target, 0, ds, 0);
+  findCombinations(0, arr, target, ds, ans);
+
+  for (auto &comb : ans) {
+    for (auto it : comb)
+      cout << it << " ";
+    cout << endl;
+  }
 
   return 0;
 }
