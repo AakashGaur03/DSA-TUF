@@ -7,6 +7,7 @@ using namespace std;
 // 2-> IN PICK ELEMENT TOO WE TOOK NEXT INDEX NOT THE SAME  ONE
 void findCombinations(int index, vector<int> arr, int target, vector<int> ds,
                       set<vector<int>> &ansSet) {
+  // BRUTE FORCE
   // TC O(2^t *k * log N)
   // t is target and k is average length
   // and Here it is K log N because we are using Set
