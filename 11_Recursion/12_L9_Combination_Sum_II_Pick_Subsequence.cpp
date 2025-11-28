@@ -4,6 +4,8 @@ using namespace std;
 void optimalFindCombinations(int index, int target, vector<int> &arr,
                              vector<vector<int>> &ans, vector<int> &ds) {
   // TC O(2^n *k)
+  // 2^n is the number of subsequneces
+  // (whenever n unique elements then 2^n subsequneces)
   // k is average length of every combination
   // SC O(k*x) x is combinations // Hypothetical
 
@@ -74,3 +76,4 @@ int main() {
 
   return 0;
 }
+// REVISITED
