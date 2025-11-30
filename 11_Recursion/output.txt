@@ -1,7 +1,7 @@
-15 L12 Print all Permutations of a String Array
+16 L13 Print all Permutations of a String Array Optimized
 1 2 3 
 1 3 2 
 2 1 3 
 2 3 1 
-3 1 2 
 3 2 1 
+3 1 2 
