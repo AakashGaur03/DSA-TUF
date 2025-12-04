@@ -1,6 +1,5 @@
-19 L16 M Coloring Problem
-Graph colored successfully:
-Node 0 -> Color 1
-Node 1 -> Color 2
-Node 2 -> Color 3
-Node 3 -> Color 2
+20 L17 Palindrome Partitioning
+a a b b 
+a a bb 
+aa b b 
+aa bb 
