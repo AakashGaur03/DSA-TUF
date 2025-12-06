@@ -1,2 +1,2 @@
-22 L19 K-th Permutation Sequence
-3412
+21 L18 Rat In a Maze
+DDRDRR DRDDRR 
