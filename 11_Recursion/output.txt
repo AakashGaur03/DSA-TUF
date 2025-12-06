@@ -1,5 +1,2 @@
-20 L17 Palindrome Partitioning
-a a b b 
-a a bb 
-aa b b 
-aa bb 
+21 L18 Rat In a Maze
+DDRDRR DRDDRR 
