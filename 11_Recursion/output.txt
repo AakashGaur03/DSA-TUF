@@ -1,2 +1,4 @@
-22 L19 K-th Permutation Sequence
-3412
+23 Power (x,n)
+Brute Approach: 2097152
+Optimized Recursive Approach: 2097152
+Optimized Approach: 2.09715e+06
