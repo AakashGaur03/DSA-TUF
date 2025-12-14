@@ -1,4 +1,3 @@
-1 Introduction to Bit Manipulation
-1101
-1101
-13
+2 L2 Must Know Tricks in Bit Manipulation
+3 5
+1
