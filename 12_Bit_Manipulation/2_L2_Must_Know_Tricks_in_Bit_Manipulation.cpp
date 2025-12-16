@@ -198,6 +198,105 @@ int toggleIthBit(int n, int i) {
 
   return n ^ (1 << i);
 }
+
+int removeLastSetBit(int n) {
+  // Let N = 12
+  // 1 1 0 0
+  // we want ans 1 0 0 0
+
+  // N = 13
+  // 1 1 0 1
+  // we want ans 1 1 0 0
+
+  // n - 1 flips the rightmost set bit of n to 0
+  // and turns all bits to its right into 1.
+  // ANDing n with (n - 1) clears that rightmost set bit
+  // while keeping all higher bits unchanged.
+
+  // Example:
+  // n = 13  -> 1101
+  // n - 1 = 12 -> 1100
+  // n & (n - 1) = 1100  (last set bit removed)
+
+  // REFER TO 2_L2_Must_Know_Tricks_in_Bit_Manipulation_REMOVE_LAST_BIT
+  return n & (n - 1);
+}
+
+int isPowerOfTwo(int n) { // There will be only 1 set bit that is leftmost
+
+  // So we will use previous concept
+  // 10000
+  // if we do n & (n-1)
+  // if that gives us 0 then Power of two else not
+
+  // 1 0 0 0 0
+
+  // n-1  = 0 1 1 1 1
+
+  // n & (n -1) = 0 0 0 0 0
+
+  // A power of two has exactly one set bit.
+  // For such numbers, n & (n - 1) clears that bit and becomes 0.
+  // We also ensure n > 0 because 0 is not a power of two.
+  return n > 0 && (n & (n - 1)) == 0;
+}
+
+int countNumberOfSetBits(int n) {
+  // N = 16 =   1 0 0 0 0 ANS = 1
+  // N = 13 =   1 1 0 1   ANS = 3
+
+  // Remember when we converted Decimal to Binary we divided by one
+  // So simply when remidner will be one we will keep track of it
+
+  int cnt = 0;
+  while (n > 1) {
+    if (n % 2 == 1) {
+      cnt++;
+    }
+    n = n / 2;
+  }
+  if (n == 1)
+    cnt += 1;
+  return cnt;
+}
+int countNumberOfSetBits2(int n) {
+  // N = 16 =   1 0 0 0 0 ANS = 1
+  // N = 13 =   1 1 0 1   ANS = 3
+
+  // n&1
+  // n = 13 -> 1101
+  // 1101 & 1 = 1 -> cnt = 1
+  // 0110 & 1 = 0
+  // 0011 & 1 = 1 -> cnt = 2
+  // 0001 & 1 = 1 -> cnt = 3
+
+  int cnt = 0;
+  while (n > 0) {
+    cnt += n & 1; // n & 1 adds 1 if the last bit is set.
+    n = n >> 1;   // DIVIDE BY 2
+  }
+  return cnt;
+}
+
+int countNumberOfSetBits3(int n) {
+  // REFER 2_L2_Must_Know_Tricks_in_Bit_Manipulation_COUT_SET_BIT3
+  // Each n & (n - 1) removes the rightmost set bit.
+  // Count how many times we can do this until n becomes 0.
+
+  // n = 13 -> 1101
+  // 1101 & 1100 = 1100 -> count = 1
+  // 1100 & 1011 = 1000 -> count = 2
+  // 1000 & 0111 = 0000 -> count = 3
+  // Total set bits = 3
+
+  int cnt = 0;
+  while (n != 0) {
+    n = n & (n - 1); // remove last set bit
+    cnt++;
+  }
+  return cnt;
+}
+
 int main() {
   cout << "2 L2 Must Know Tricks in Bit Manipulation" << endl;
 
@@ -242,6 +341,24 @@ int main() {
   int res6 = toggleIthBit(n5, i5);
   cout << endl;
   cout << res6;
+
+  // Remove the Last set bit (rightmost)
+  int n6 = 12;
+  int res7 = removeLastSetBit(n6);
+  cout << endl;
+  cout << res7;
+
+  // Check if number is Power of 2
+  int n7 = 12;
+  int res8 = isPowerOfTwo(n7);
+  cout << endl;
+  cout << res8;
+
+  // Count Number of Set bits
+  int n8 = 12;
+  int res9 = countNumberOfSetBits(n8);
+  cout << endl;
+  cout << res9;
 
   return 0;
 }
