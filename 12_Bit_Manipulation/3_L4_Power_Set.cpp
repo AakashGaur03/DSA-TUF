@@ -12,10 +12,11 @@ int main() {
   // 2 ki power n
 
   // That is equal to 1 << n
-  int subsets = pow(2, nums.size());
-  for (int i = 0; i < subsets; i++) {
+  // int subsets = pow(2, nums.size());
+  int subsets = 1 << nums.size();
+  for (int i = 0; i < subsets; i++) { // 2 ^N
     vector<int> list;
-    for (int j = 0; j < nums.size(); j++) {
+    for (int j = 0; j < nums.size(); j++) { // N
       if (i & (1 << j)) {
         list.push_back(nums[j]);
       }
