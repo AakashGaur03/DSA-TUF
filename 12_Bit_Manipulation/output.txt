@@ -1,2 +1,2 @@
 4 L6 Single Number II
-4444
+14 4
