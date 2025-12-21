@@ -35,7 +35,7 @@ vector<int> betterSingleNumberIII(vector<int> nums) {
     xorr ^= nums[i];
   }
   // Get RightMost
-  long rightMost = (xorr & (xorr - 1)) & xorr;
+  long rightMost = xorr & (-xorr);
   int b1 = 0;
   int b2 = 0;
 
