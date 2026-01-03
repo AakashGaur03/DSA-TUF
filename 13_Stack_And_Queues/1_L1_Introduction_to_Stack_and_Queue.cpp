@@ -44,6 +44,63 @@ public:
   }
 };
 
+class quImpl {
+  // It is FIFO First In First Out
+  // We need to Pointers to Keep track of First In and Last Inserted
+  // start and end
+  // There are multiple edge cases we will cover them all
+
+  int sizeCapacity = 10;
+  int q[10];
+  int currSize = 0;
+  int start = -1;
+  int end = -1;
+
+public:
+  void push(int x) {
+    // TC O(1)
+    if (currSize == sizeCapacity) {
+      cout << "Queue Overflow\n";
+      return;
+    } else if (currSize == 0) {
+      start = 0;
+      end = 0;
+    } else {
+      end = (end + 1) % sizeCapacity;
+    }
+    q[end] = x;
+    currSize += 1;
+  }
+  int pop() {
+    // TC O(1)
+    if (currSize == 0) {
+      cout << "Queue Underflow\n";
+      return -1;
+    }
+    int el = q[start];
+    if (currSize == 1) {
+      start = -1;
+      end = -1;
+    } else {
+      start = (start + 1) % sizeCapacity;
+    }
+    currSize -= 1;
+    return el;
+  }
+  int front() {
+    // TC O(1)
+    if (currSize == 0) {
+      cout << "Queue Underflow\n";
+      return -1;
+    }
+
+    return q[start];
+  }
+  int size() {
+    // TC O(1)
+    return currSize;
+  }
+};
 int main() {
   cout << "1 L1 Introduction to Stack and Queue.cpp" << endl;
   // Stack Holds a certain type of DS
