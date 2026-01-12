@@ -1,5 +1,5 @@
-5 L3 Prefix Infix and Postfix Conversion
-Original String: a+b*(c^d-e)
-Infix to Postfix: abcd^e-*+
-Original String: (a+b)*c-d+f
-Infix to Prefix: +-*+abcdf
+7 L3 Prefix Infix and Postfix Conversion File 2
+Original String: AB-DE+F*/
+Postfix to Prefix: /-AB*+DEF
+Original String: /-AB*+DEF
+Prefix to Postfix: AB-DE+F*/
