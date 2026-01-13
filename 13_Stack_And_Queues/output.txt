@@ -1,5 +1,5 @@
-7 L3 Prefix Infix and Postfix Conversion File 2
-Original String: AB-DE+F*/
-Postfix to Prefix: /-AB*+DEF
-Original String: /-AB*+DEF
-Prefix to Postfix: AB-DE+F*/
+8 L4 Implement Min Stack
+Top: 7
+Min: 3
+Top after pop: 3
+Min after pop: 3
