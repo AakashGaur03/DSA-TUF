@@ -45,6 +45,10 @@ vector<int> nextGreaterOptimized(vector<int> arr) {
       res[i] = st.top();
       st.push(arr[i]);
     }
+
+    // IF ELSE BLOCK CAN ALSO BE WRITTEN AS
+    // res[i] = st.empty() ? -1 : st.top();
+    //   st.push(arr[i]);
   }
   return res;
 }
