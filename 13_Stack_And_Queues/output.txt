@@ -1,3 +1,2 @@
-11 L7 Prev Greater Element
--1 5 7 5 6 
--1 5 7 5 6 
+12 L8 Trapping Rainwater
+Trapped Rail Water is: 6
