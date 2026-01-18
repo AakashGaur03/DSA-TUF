@@ -1,2 +1,3 @@
 12 L8 Trapping Rainwater
-Trapped Rail Water is: 6
+Trapped Rain Water is: 6
+Trapped Rain Water is: 6
