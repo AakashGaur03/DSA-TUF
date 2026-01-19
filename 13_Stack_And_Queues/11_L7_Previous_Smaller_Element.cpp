@@ -42,6 +42,7 @@ vector<int> prevSmallerOptimized(vector<int> arr) {
   }
   return res;
 }
+
 int main() {
   cout << "11 L7 Prev Greater Element" << endl;
   // Concept of Monotonic Stack comes in
