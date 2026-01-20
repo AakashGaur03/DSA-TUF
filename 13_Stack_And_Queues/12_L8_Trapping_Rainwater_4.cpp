@@ -64,6 +64,7 @@ int trappingRainWaterOptimized(vector<int> building) {
   while (left < right) {
     if (building[left] <= building[right]) {
       if (leftMax > building[left]) {
+        // simply means that building on the left is bigger
         total += leftMax - building[left];
       } else {
         leftMax = building[left];
@@ -71,6 +72,7 @@ int trappingRainWaterOptimized(vector<int> building) {
       left++;
     } else {
       if (rightMax > building[right]) {
+        // simply means that building on the right is bigger
         total += rightMax - building[right];
       } else {
         rightMax = building[right];
@@ -152,3 +154,5 @@ int main() {
 //   // Return total trapped water
 //   return total;
 // }
+
+// REVISITED
