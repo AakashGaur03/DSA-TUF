@@ -99,6 +99,46 @@ int betterLargestRectangleHistogram(vector<int> arr) {
   return maxi;
 }
 
+int optimalLargestRectangleHistogram(vector<int> arr) {
+  // TC O(2N)
+  // SC O(N)
+  // We will be applying the same formula
+  // arr[i] * (nse - pse -1) we will get area for each element
+  // But getting pse and nse on the fly
+  // we can simply get pse as we iterate
+  // nse is slightly tricky what we do is
+  // we maintain a stack and whenever we get smaller value we get
+  // nse of values that are bigger in stack
+
+  int size = arr.size();
+  stack<int> st;
+  int maxArea = 0;
+
+  for (int i = 0; i < size; i++) { // O(N)
+
+    // If current bar is smaller, it becomes NSE for stack elements
+    while (!st.empty() && arr[st.top()] > arr[i]) { // O(N)
+      int element = st.top(); // index of bar whose area we calculate
+      st.pop();
+      int nse = i;                          // current index is NSE
+      int pse = st.empty() ? -1 : st.top(); // new stack top is PSE
+      maxArea = max(maxArea, arr[element] * (nse - pse - 1));
+    }
+    // push current index, stack remains increasing
+    st.push(i);
+  }
+  // Remaining elements don't have NSE → NSE = size
+  while (!st.empty()) {
+    int nse = size;
+    int element = st.top();
+    st.pop();
+    int pse = st.empty() ? -1 : st.top();
+    maxArea = max(maxArea, arr[element] * (nse - pse - 1));
+  }
+
+  return maxArea;
+}
+
 int main() {
   cout << "16 L12 Largest Rectangle in Histogram" << endl;
   // Array of integers, every value representing Height of
@@ -115,5 +155,7 @@ int main() {
   cout << res << endl;
   int res2 = betterLargestRectangleHistogram(arr);
   cout << res2 << endl;
+  int res23 = optimalLargestRectangleHistogram(arr);
+  cout << res23 << endl;
   return 0;
 }
