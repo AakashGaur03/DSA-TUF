@@ -1,4 +1,2 @@
-16 L12 Largest Rectangle in Histogram
-10
-10
-10
+17 L13 Maximal Rectangle
+Maximal Rectangle Area: 6
