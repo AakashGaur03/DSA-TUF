@@ -1,2 +1,2 @@
-17 L13 Maximal Rectangle
-Maximal Rectangle Area: 6
+18 L14 Remove K Digits
+1219
