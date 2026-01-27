@@ -28,6 +28,9 @@ public:
   int index;
   // value and index
   StockSpanner() { index = -1; }
+  // StockSpanner() : index(-1) {}
+  // index is directly initialized to -1
+  // No extra assignment step
 
   int next(int price) {
     // TC O(2N)
