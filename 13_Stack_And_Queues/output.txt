@@ -1,2 +1,2 @@
-18 L14 Remove K Digits
-1219
+20 L16 Sliding Window Maximum 
+3 3 5 5 5 3 6 
