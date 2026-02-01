@@ -1,3 +1,1 @@
-21 L17 The Celebrity Problem
-Celebrity is: 1
-Celebrity is: 1
+22 L18 Implement LRU Cache
