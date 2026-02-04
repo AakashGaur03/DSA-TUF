@@ -1,1 +1,2 @@
-1 L1 Introduction to Sliding Window and 2 Pointers
+2 L2 Maximum Points You Can Obtain from N Cards
+16
