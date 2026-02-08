@@ -4,7 +4,7 @@
 using namespace std;
 
 int bruteApproach(vector<int> arr) {
-  // TC O(N*2)
+  // TC O(N^2)
   // SC O(3)
   // We generate all subarrays
   // we see at most 2 unique elements with maxLen
