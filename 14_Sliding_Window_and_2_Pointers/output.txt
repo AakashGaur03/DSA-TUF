@@ -1,3 +1,2 @@
-6 L7 Number of Substrings Containing All Three Characters
-9
-9
+7_L8_Longest_Repeating_Character_Replacement
+5
