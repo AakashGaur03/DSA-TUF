@@ -106,5 +106,9 @@ int main() {
 
   int res1 = bruteApproach(s, k);
   cout << res1 << endl;
+  int res2 = optimalApproach(s, k);
+  cout << res2 << endl;
+  int res3 = optimalApproach2(s, k);
+  cout << res3 << endl;
   return 0;
 }
