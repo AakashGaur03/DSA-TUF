@@ -40,7 +40,46 @@ string bruteApporach(string s, string t) {
   return s.substr(startIndex, minLen);
 }
 
-string optimalApproach(string s, string t) {}
+string optimalApproach(string s, string t) {
+  // TC O(M + 2N)
+  // SC O(256)
+  int sizeS = s.size();
+  int sizeT = t.size();
+  int left = 0;
+  int right = 0;
+  int cnt = 0;
+  int minLen = INT_MAX;
+  int startIdx = -1;
+  vector<int> hash(256, 0);
+
+  for (int j = 0; j < sizeT; j++) {
+    hash[t[j]]++;
+  }
+
+  while (right < sizeS) {
+    if (hash[s[right]] > 0) {
+      cnt++;
+    }
+    hash[s[right]]--;
+    while (cnt == sizeT) {
+      if ((right - left + 1) < minLen) {
+        minLen = right - left + 1;
+        startIdx = left;
+      }
+      // We will try to also reduce the size
+      hash[s[left]]++;
+      if (hash[s[left]] > 0) {
+        cnt--;
+      }
+      left++;
+    }
+    right++;
+  }
+  if (startIdx == -1) {
+    return "";
+  }
+  return s.substr(startIdx, minLen);
+}
 
 int main() {
   cout << "9 L12 Minimum Window Substring" << endl;
