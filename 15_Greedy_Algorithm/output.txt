@@ -1,3 +1,2 @@
-4 L6 Job Sequencing Problem
-2
-60
+4 L7 N Meeting in One Room
+3 2 5 6 

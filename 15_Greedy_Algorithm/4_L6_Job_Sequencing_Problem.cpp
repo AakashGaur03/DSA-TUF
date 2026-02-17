@@ -3,6 +3,7 @@ using namespace std;
 
 bool comp(vector<int> &a, vector<int> &b) {
   return a[2] > b[2]; // Sort by profit descending
+  // If values are correct a[2] > b[2] then OK otherwise SWAP
 }
 
 pair<int, int> jobSequencingProblem(vector<vector<int>> jobs) {
@@ -52,3 +53,5 @@ int main() {
   cout << res.second << endl;
   return 0;
 }
+
+// REVISITED
