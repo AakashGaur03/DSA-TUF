@@ -20,11 +20,15 @@ vector<int> meetingInARoom(vector<int> start, vector<int> end) {
 
   vector<vector<int>> arr(size, vector<int>(3)); // SC O(3N)
 
+  // Added index to all to return order afterwards
   for (int i = 0; i < size; i++) { // O(N)
     arr[i][0] = start[i];
     arr[i][1] = end[i];
     arr[i][2] = i + 1; // 1 based Indexing
   }
+
+  // sorting so that we can take shorter meetings
+
   sort(arr.begin(), arr.end(), comp); // N log N
   int cnt = 1;
   int freeTime = arr[0][1]; // end time of first Value
@@ -57,3 +61,5 @@ int main() {
 
   return 0;
 }
+
+//  REVISITED

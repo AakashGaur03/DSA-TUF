@@ -42,8 +42,12 @@ int main() {
   // WE can use the same concept of 5_L7_N_Meeting_in_One_Room
   // Basically it gave us max meetings that can be done
   // So here numberOfInterval - maxMeetings is our ans
+  // Refer to 6_L8_Non_Overlapping_Intervals_1
+
   int res = nonOverlappingIntervals(intervals);
   cout << res;
 
   return 0;
 }
+
+// REVISITED
