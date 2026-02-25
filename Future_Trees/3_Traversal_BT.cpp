@@ -24,6 +24,8 @@ void preorder(Node *root, vector<int> &arr) {
 // and return resulting vector
 
 vector<int> preOrder(Node *root) {
+  // TC O(N)
+  // SC O(N)
   vector<int> arr;
 
   preorder(root, arr);
