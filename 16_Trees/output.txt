@@ -1,3 +1,2 @@
-3_L11_Iterative_Postorder_Traversal_using_2_Stack
-Iterative Postorder Traversal with 2 Stack Example:
+4 L12 Iterative Postorder Traversal using 1 Stack
 Postorder Traversal: 4 5 2 3 1 
