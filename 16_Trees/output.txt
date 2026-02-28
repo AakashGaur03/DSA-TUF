@@ -1,2 +1,4 @@
-4 L12 Iterative Postorder Traversal using 1 Stack
-Postorder Traversal: 4 5 2 3 1 
+5 L13 Preorder Inorder Postorder Traversals in One Traversal
+Preorder: 1 2 4 5 3 
+Inorder: 4 2 5 1 3 
+Postorder: 4 5 2 3 1 
