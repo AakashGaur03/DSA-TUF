@@ -1,5 +1,2 @@
-6 L15 Check for Balanced Binary Tree
-Brute: 1
-Optimized: 1
-Brute: 0
-Optimized: 0
+6 L17 Diameter of Binary Tree
+Diameter Binary Tree: 4
