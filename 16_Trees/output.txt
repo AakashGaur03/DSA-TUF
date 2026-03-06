@@ -1,2 +1,2 @@
-6 L17 Diameter of Binary Tree
-Diameter Binary Tree: 4
+7 L18 Check it two trees are Identical or Not
+The trees are identical.
