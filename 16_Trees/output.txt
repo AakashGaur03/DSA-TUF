@@ -1,2 +1,2 @@
-12 L25 Check for Symmetrical Binary Trees
-Tree is Symmetric
+13 L27 Lowest Common Ancestor in Binary Tree
+Brute is: 2
