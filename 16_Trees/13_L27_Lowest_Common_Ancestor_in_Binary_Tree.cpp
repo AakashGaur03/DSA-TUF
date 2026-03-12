@@ -61,6 +61,69 @@ int bruteLowestCommonAncestor(TreeNode *root, int a, int b) {
   return ans;
 }
 
+// Just for Learning Apporach NOTE IT ASSUMES TREE DONT CONTAINS -1
+int optimalLowestCommonAncestor(TreeNode *root, int a, int b) {
+  // we will be using Recursive Traversal Technique
+  // DFS Technique
+  // Whenever we recieve the node or value that is mentioned in question instead
+  // of moving to next left or right we will return that value
+  // Refer 13_L27_Lowest_Common_Ancestor_in_Binary_Tree_4 &
+  // 13_L27_Lowest_Common_Ancestor_in_Binary_Tree_5
+  // So if we have a left or right a singluar as null we will return the one
+  // that has value So like we had null and 7 we returned 7
+  // But when we have both the values we return the node value
+
+  if (root == nullptr) {
+    return -1;
+  }
+
+  if (root->val == a || root->val == b) {
+    return root->val;
+  }
+
+  int left = optimalLowestCommonAncestor(root->left, a, b);
+  int right = optimalLowestCommonAncestor(root->right, a, b);
+
+  if (left == -1) {
+    return right;
+  } else if (right == -1) {
+    return left;
+  } else {
+    return root->val;
+  }
+}
+
+// Industry Standard
+TreeNode *optimalLowestCommonAncestorTreeNodes(TreeNode *root, TreeNode *a,
+                                               TreeNode *b) {
+  // TC O(N)
+  // SC O(N)
+  // we will be using Recursive Traversal Technique
+  // DFS Technique
+  // Whenever we recieve the node or value that is mentioned in question instead
+  // of moving to next left or right we will return that value
+  // Refer 13_L27_Lowest_Common_Ancestor_in_Binary_Tree_4 &
+  // 13_L27_Lowest_Common_Ancestor_in_Binary_Tree_5
+  // So if we have a left or right a singluar as null we will return the one
+  // that has value So like we had null and 7 we returned 7
+  // But when we have both the values we return the node value
+
+  if (root == nullptr || root == a || root == b) {
+    return root;
+  }
+
+  TreeNode *left = optimalLowestCommonAncestorTreeNodes(root->left, a, b);
+  TreeNode *right = optimalLowestCommonAncestorTreeNodes(root->right, a, b);
+
+  if (left == nullptr) {
+    return right;
+  } else if (right == nullptr) {
+    return left;
+  } else {
+    return root;
+  }
+}
+
 int main() {
   cout << "13 L27 Lowest Common Ancestor in Binary Tree" << endl;
   // Lowest Common ancestor
@@ -94,7 +157,15 @@ int main() {
   root->left->right = new TreeNode(5);
   root->left->right->left = new TreeNode(6);
   root->left->right->right = new TreeNode(7);
-  int res = bruteLowestCommonAncestor(root, 4, 7);
-  cout << "Brute is: " << res;
+  int bruteRes = bruteLowestCommonAncestor(root, 4, 7);
+  cout << "Brute is: " << bruteRes << endl;
+
+  int optimalRes = optimalLowestCommonAncestor(root, 4, 7);
+  cout << "Optimal (Learning) is: " << optimalRes << endl;
+
+  TreeNode *lca = optimalLowestCommonAncestorTreeNodes(
+      root, root->left->left, root->left->right->right);
+
+  cout << "Optimal TreeNodes is: " << lca->val << endl;
   return 0;
 }
