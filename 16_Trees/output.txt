@@ -1,4 +1,2 @@
-13 L27 Lowest Common Ancestor in Binary Tree
-Brute is: 2
-Optimal (Learning) is: 2
-Optimal TreeNodes is: 2
+14 L28 Maximum Width of Binary Tree
+4
