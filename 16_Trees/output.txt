@@ -1,2 +1,2 @@
-16 L30 Print all the Nodes at a distance of K in Binary Tree
-7 4 1 
+17 L31 Minimum time taken to BURN the Binary Tree from a Node
+Time to burn tree: 3
