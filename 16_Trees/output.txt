@@ -1,2 +1,2 @@
-17 L31 Minimum time taken to BURN the Binary Tree from a Node
-Time to burn tree: 3
+18 L32 Count total Nodes in a COMPLETE Binary Tree
+Total nodes tree: 11
