@@ -13,8 +13,7 @@ struct TreeNode {
 
 // Build a map that stores: child -> parent
 void markParents(TreeNode *root,
-                 unordered_map<TreeNode *, TreeNode *> &parent_track,
-                 TreeNode *target) {
+                 unordered_map<TreeNode *, TreeNode *> &parent_track) {
   queue<TreeNode *> q;
   q.push(root);
   while (!q.empty()) {
@@ -35,7 +34,7 @@ vector<int> nodesAtDistanceK(TreeNode *root, TreeNode *target, int K) {
   // TC O(N)
   // SC O(N + logN(for hashMap))
   unordered_map<TreeNode *, TreeNode *> parent_track;
-  markParents(root, parent_track, target);
+  markParents(root, parent_track);
 
   unordered_map<TreeNode *, bool> visited;
   queue<TreeNode *> q;
@@ -49,6 +48,11 @@ vector<int> nodesAtDistanceK(TreeNode *root, TreeNode *target, int K) {
     if (curr_level++ == K) {
       break;
     }
+    // we can also write
+    //  if(curr_level == k){
+    //    break;
+    // }
+    // curr_level++;
     for (int i = 0; i < size; i++) {
       TreeNode *current = q.front();
       q.pop();
@@ -63,6 +67,7 @@ vector<int> nodesAtDistanceK(TreeNode *root, TreeNode *target, int K) {
         visited[current->right] = true;
       }
       // move to parent
+      // If there is parent of current and that is not visited
       if (parent_track[current] && !visited[parent_track[current]]) {
         q.push(parent_track[current]);
         visited[parent_track[current]] = true;
