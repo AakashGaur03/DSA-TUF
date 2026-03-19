@@ -1,2 +1,2 @@
-18 L32 Count total Nodes in a COMPLETE Binary Tree
-Total nodes tree: 11
+19 L34 Construct a Binary Tree from Preorder and Inorder Traversal
+Inorder of constructed tree: 3 9 20 15 7 
