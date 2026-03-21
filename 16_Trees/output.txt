@@ -1,2 +1,2 @@
-19 L34 Construct a Binary Tree from Preorder and Inorder Traversal
+20 L35 Construct a Binary Tree from Postorder and Inorder Traversal
 Inorder of constructed tree: 3 9 20 15 7 
