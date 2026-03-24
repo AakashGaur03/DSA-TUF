@@ -35,7 +35,6 @@ vector<int> getInorder(TreeNode *root) {
         prev->right = curr;
         curr = curr->left;
 
-        // First time visiting this node → create thread
       } else {
         prev->right = nullptr;
         inorder.push_back(curr->val);
