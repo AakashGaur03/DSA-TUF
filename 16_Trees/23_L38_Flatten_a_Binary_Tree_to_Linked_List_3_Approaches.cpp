@@ -7,7 +7,7 @@ struct ListNode {
 
   ListNode(int x) {
     val = x;
-    next = NULL;
+    next = nullptr;
   }
 };
 
@@ -18,7 +18,7 @@ struct TreeNode {
   // Constructor: initializes a node with value 'x'
   // left and right child pointers are set to NULL (meaning no children
   // initially)
-  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
 void printList(ListNode *head) {
@@ -31,7 +31,7 @@ void printList(ListNode *head) {
 
 ListNode *bruteLinkedList(TreeNode *root) {
   if (root == nullptr) {
-    return NULL;
+    return nullptr;
   }
   vector<int> preorder;
   stack<TreeNode *> st;
@@ -49,6 +49,8 @@ ListNode *bruteLinkedList(TreeNode *root) {
       st.push(node->left);
   }
 
+  if (preorder.empty())
+    return nullptr;
   // Step 2: Create linked list
   ListNode *head = new ListNode(preorder[0]);
   ListNode *curr = head;
@@ -62,7 +64,7 @@ ListNode *bruteLinkedList(TreeNode *root) {
 }
 
 void flattenHelper(TreeNode *root, TreeNode *&prev) {
-  if (root == NULL)
+  if (root == nullptr)
     return;
 
   /*
@@ -79,15 +81,17 @@ so we can keep attaching nodes using 'prev'
   flattenHelper(root->left, prev);
 
   //  Rewire pointers
-  root->right = prev; // connect current node to next node
-  root->left = NULL;  // left should always be NULL in flattened tree
+  root->right = prev;   // connect current node to next node
+  root->left = nullptr; // left should always be NULL in flattened tree
 
   // Move prev to current node
   prev = root;
 }
 
-void flatten(TreeNode *root) {
-  TreeNode *prev = NULL;
+void flattenRecursive(TreeNode *root) {
+  // TC O(N)
+  // SC O(N)
+  TreeNode *prev = nullptr;
   flattenHelper(root, prev);
 
   /*
@@ -144,6 +148,153 @@ void flatten(TreeNode *root) {
    */
 }
 
+void flattenIterative(TreeNode *root) {
+  // TC O(N)
+  // SC O(N)
+  // Yellow pointers for Right
+  // Red Pointer for Left 
+  // Refer 23_L38_Flatten_a_Binary_Tree_to_Linked_List_3_Approaches_3
+  // 23_L38_Flatten_a_Binary_Tree_to_Linked_List_3_Approaches_4
+  if (root == nullptr)
+    return;
+
+  stack<TreeNode *> st;
+  st.push(root);
+  /*
+    IDEA:
+    Simulate preorder traversal using stack:
+    Root -> Left -> Right
+
+    But stack is LIFO, so:
+    Push RIGHT first, then LEFT
+    */
+
+  while (!st.empty()) {
+    TreeNode *curr = st.top();
+    st.pop();
+
+    // Push right child first
+    if (curr->right) {
+      st.push(curr->right);
+    }
+
+    // Push left child
+    if (curr->left) {
+      st.push(curr->left);
+    }
+
+    /*
+    Top of stack will be next node in preorder
+    So connect current node's right to it
+    */
+    if (!st.empty()) {
+      curr->right = st.top();
+    }
+
+    // Left must be NULL
+    curr->left = nullptr;
+  }
+  /*
+  ---------------- DRY RUN ----------------
+
+  Stack initially: [1]
+
+  Pop 1:
+    push 5, push 2 → stack: [5, 2]
+    1->right = 2
+
+  Pop 2:
+    push 4, push 3 → stack: [5, 4, 3]
+    2->right = 3
+
+  Pop 3:
+    stack: [5, 4]
+    3->right = 4
+
+  Pop 4:
+    stack: [5]
+    4->right = 5
+
+  Pop 5:
+    push 6 → stack: [6]
+    5->right = 6
+
+  Pop 6:
+    push 7 → stack: [7]
+    6->right = 7
+
+  Pop 7:
+    stack empty → 7->right = NULL
+
+  FINAL:
+  1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> NULL
+
+  -----------------------------------------
+  */
+}
+
+void flattenMorris(TreeNode *root) {
+  // TC O(N)
+  // SC O(1)
+  // On the left sub tree we will get the last node of preorder and connect it
+  // to right of the root Refer
+  // 23_L38_Flatten_a_Binary_Tree_to_Linked_List_3_Approaches_5
+
+  TreeNode *curr = root;
+
+  /*
+  IDEA:
+  For each node:
+  - If left exists:
+      Find rightmost node of left subtree
+      Connect it to curr->right
+      Move left subtree to right
+  */
+
+  while (curr != nullptr) {
+    if (curr->left != nullptr) {
+
+      // Step 1: Find rightmost node of left subtree
+      TreeNode *prev = curr->left;
+      while (prev->right != nullptr) {
+        prev = prev->right;
+      }
+
+      // Step 2: Connect right subtree
+      prev->right = curr->right;
+
+      // Step 3: Move left subtree to right
+      curr->right = curr->left;
+      curr->left = nullptr;
+    }
+
+    // Step 4: Move forward
+    curr = curr->right;
+  }
+
+  /*
+  ---------------- DRY RUN ----------------
+
+  At node 1:
+    left = 2
+    rightmost of left = 4
+    4->right = 5
+    1->right = 2
+
+  At node 2:
+    left = 3
+    rightmost = 3
+    3->right = 4
+    2->right = 3
+
+  Continue...
+
+  FINAL:
+  1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> NULL
+
+  -----------------------------------------
+  */
+}
 int main() {
   cout << "23 L38 Flatten a Binary Tree to Linked List 3 Approaches" << endl;
 
@@ -173,7 +324,7 @@ int main() {
   printList(head);
 
   // But we need to do without creating a new LL
-  flatten(root);
+  flattenRecursive(root);
 
   // Print flattened tree (using right pointers)
   TreeNode *curr = root;
@@ -183,6 +334,42 @@ int main() {
   }
   cout << "NULL\n";
 
-  cout << endl;
+  // Create fresh tree again
+  TreeNode *root2 = new TreeNode(1);
+  root2->left = new TreeNode(2);
+  root2->right = new TreeNode(5);
+  root2->left->left = new TreeNode(3);
+  root2->left->right = new TreeNode(4);
+  root2->right->right = new TreeNode(6);
+  root2->right->right->left = new TreeNode(7);
+
+  flattenIterative(root2);
+
+  // Print
+  TreeNode *curr2 = root2;
+  while (curr2) {
+    cout << curr2->val << " -> ";
+    curr2 = curr2->right;
+  }
+  cout << "NULL\n";
+
+  // Fresh tree again
+  TreeNode *root3 = new TreeNode(1);
+  root3->left = new TreeNode(2);
+  root3->right = new TreeNode(5);
+  root3->left->left = new TreeNode(3);
+  root3->left->right = new TreeNode(4);
+  root3->right->right = new TreeNode(6);
+  root3->right->right->left = new TreeNode(7);
+
+  flattenMorris(root3);
+
+  // Print
+  TreeNode *curr3 = root3;
+  while (curr3) {
+    cout << curr3->val << " -> ";
+    curr3 = curr3->right;
+  }
+  cout << "NULL\n";
   return 0;
 }
