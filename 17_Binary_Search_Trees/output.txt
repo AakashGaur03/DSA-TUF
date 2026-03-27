@@ -1,2 +1,2 @@
-1 L41 Ceil in a Binary Search Tree
-Ceil of 8 is: 9
+3 L43 Insert a given Node in Binary Search Tree
+Inorder Traversal: 1 2 3 4 5 7 
