@@ -1,2 +1,2 @@
-4 L44 Delete a Node in Binary Search Tree
-Inorder Traversal: 2 4 5 6 7 
+5 L45 K th Smallest Largest Element in BST
+45
