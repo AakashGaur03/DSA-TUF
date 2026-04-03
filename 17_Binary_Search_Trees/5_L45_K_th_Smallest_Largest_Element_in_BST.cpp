@@ -51,6 +51,78 @@ int KthLargest(TreeNode *root, int k, int &cnt) {
   return KthLargest(root->left, k, cnt);
 }
 
+int KthSmallestMorris(TreeNode *root, int k) {
+  TreeNode *curr = root;
+  int cnt = 0;
+
+  while (curr != nullptr) {
+    if (curr->left == nullptr) {
+      cnt++;
+      if (cnt == k) {
+        return curr->val;
+      }
+      curr = curr->right;
+    } else {
+      TreeNode *prev = curr->left;
+      // Now we need to go in extreme right and connect it with parent node
+      while (prev->right != nullptr && prev->right != curr) {
+        prev = prev->right;
+      }
+      if (prev->right == nullptr) {
+        // Create Thread
+        prev->right = curr;
+        curr = curr->left;
+      } else {
+        // Remove Thread
+        prev->right = nullptr;
+        cnt++;
+        if (cnt == k) {
+          return curr->val;
+        }
+        curr = curr->right;
+      }
+    }
+  }
+  return -1;
+}
+
+int KthLargestMorris(TreeNode *root, int k) {
+  TreeNode *curr = root;
+  int cnt = 0;
+  int ans = -1;
+
+  while (curr != nullptr) {
+    if (curr->right == nullptr) {
+      cnt++;
+      if (cnt == k) {
+        ans = curr->val;
+      }
+      curr = curr->left;
+    } else {
+      TreeNode *next = curr->right;
+      // Find leftmost in right subtree (reverse predecessor)
+      while (next->left != nullptr && next->left != curr) {
+        next = next->left;
+      }
+      if (next->left == nullptr) {
+        // Create Thread
+        next->left = curr;
+        curr = curr->right;
+      } else {
+        // Remove Thread
+        next->left = nullptr;
+        cnt++;
+        if (cnt == k) {
+          ans = curr->val;
+        }
+        curr = curr->left;
+      }
+    }
+  }
+
+  return ans;
+}
+
 int main() {
   cout << "5 L45 K th Smallest Largest Element in BST" << endl;
   // BST L < N < R
@@ -78,5 +150,9 @@ int main() {
   int cnt2 = 0;
   int val2 = KthLargest(root, k, cnt2);
   cout << val2;
+  int val3 = KthSmallestMorris(root, k);
+  cout << val3;
+  int val4 = KthLargestMorris(root, k);
+  cout << val4;
   return 0;
 }
