@@ -1,2 +1,2 @@
-5 L46 Check if a tree is a BST or BT
-Valid BST
+6 L47 LCA in Binary Search Tree
+LCA: 2
