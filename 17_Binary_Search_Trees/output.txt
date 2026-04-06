@@ -1,2 +1,1 @@
-6 L47 LCA in Binary Search Tree
-LCA: 2
+7 L48 Construct a BST from a preorder traversal
