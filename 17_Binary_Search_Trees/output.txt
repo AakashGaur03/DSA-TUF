@@ -1,2 +1,1 @@
-9 L51 Two Sum In BST | Check if there exists a pair with Sum K SIMPLER VERSION
-1
+10 L52 Recover BST | Correct BST with two nodes swapped
