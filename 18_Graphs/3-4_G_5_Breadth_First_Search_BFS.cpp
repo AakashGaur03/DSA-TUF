@@ -1,8 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+  // TC O(N) + (2E)
+  // SC O(3N)
+  // We will be given Number of nodes that is V
+  // We will be given Adj array that is adj
+  vector<int> vis(V, 0);
+  int start = 1; // 1 if 1 based 0 if 0 based values
+  vis[start] = 1;
+  queue<int> q;
+  q.push(start);
+  vector<int> bfs;
+  while (!q.empty()) {
+    int node = q.front();
+    q.pop();
+    bfs.push_back(node);
+    for (auto it : adj[node]) {
+      if (!vis[it]) {
+        vis[it] = 1;
+        q.push(it);
+      }
+    }
+  }
+
+  return bfs;
+}
+
 int main() {
-  cout << "3 G 5 Breadth First Search BFS" << endl;
+  cout << "3-4 G 5 Breadth First Search BFS" << endl;
   // Graph can be 1 based or 0 Based
   // Breadth First Search (Level Wise)
   // Here Level is acc to distance Gap 1 to Level 1
@@ -20,7 +46,7 @@ int main() {
   // Both are Valid Doesnt matter Left to Right or Right to left
 
   // Starting Point is 6
-  // Starting point can only be 1
+  // Starting point can only be one from among the Graph
 
   //        1
   //     /    \
@@ -53,7 +79,6 @@ int main() {
   // 6 -> {1,7,9}
   // 7 -> {6,8}
   // 8 -> {5,7}
-  // 9 -> {6}
 
   // So we will push Starting node in Queue
 
@@ -81,6 +106,27 @@ int main() {
   // | _  |
 
   // and then so on and we can Travese Whole Graph
+
+  // Undirected Graph (converted from your example to 0-based)
+
+  int V = 10; // nodes 1 to 9
+  vector<int> adj[V];
+
+  adj[1] = {2, 6};
+  adj[2] = {1, 3, 4};
+  adj[3] = {2};
+  adj[4] = {2, 5};
+  adj[5] = {4, 7};
+  adj[6] = {1, 7, 8};
+  adj[7] = {6, 5};
+  adj[8] = {6};
+
+  vector<int> result = bfsOfGraph(V, adj);
+
+  cout << "BFS Order: ";
+  for (auto node : result) {
+    cout << node << " ";
+  }
 
   return 0;
 }
