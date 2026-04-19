@@ -62,3 +62,33 @@ struct TreeNode {
   // initially)
   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
+/*
+GRAPH
+// --------------------------------------------------------
+  // GENERIC CODE
+  //  If we are given AdJ matrix then we can convert it to Adj List
+  for (int i = 0; i < V; i++) {
+    for (int j = 0; j < V; j++) {
+      if (adjMat[i][j] == 1 && i != j) {
+        adjLs[i].push_back(j);
+      }
+    }
+  }
+  // It still behaves like an undirected graph because:
+  // Because we are scanning the full matrix:
+  // Matrix has both adjMat[i][j] and adjMat[j][i]
+  // So both directions eventually get added
+  // OR
+  // we can reduce work by half:
+  // for (int i = 0; i < V; i++) {
+  //   for (int j = i + 1; j < V; j++) {
+  //     if (adjMat[i][j] == 1) {
+  //       adjLs[i].push_back(j);
+  //       adjLs[j].push_back(i);
+  //     }
+  //   }
+  // }
+
+  // --------------------------------------------------------
+*/
