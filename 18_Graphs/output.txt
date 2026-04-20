@@ -1,2 +1,2 @@
-5 G 7 Number of Provinces
-Number of Provinces: 3
+6 G 8 Number of Islands | Number of Connected Components in Matrix
+Number of islands: 3
