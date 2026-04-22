@@ -1,5 +1,2 @@
-7 G 9 Flood Fill Algorithm
-Resultant Image:
-2 2 2 
-2 2 0 
-2 0 1 
+8 G 10 Rotten Oranges
+Minimum time to rot all oranges: 4
