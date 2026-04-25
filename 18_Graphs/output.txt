@@ -1,2 +1,2 @@
-9 G 11 Detect a Cycle in an Undirected Graph using BFS
+10 G 12 Detect a Cycle in an Undirected Graph using DFS
 Cycle detected
