@@ -1,2 +1,10 @@
-10 G 12 Detect a Cycle in an Undirected Graph using DFS
-Cycle detected
+11 G 13 Distance of nearest cell having 1
+Input Matrix:
+0 0 0 
+0 1 0 
+1 0 0 
+
+Distance Matrix:
+2 1 2 
+1 0 1 
+0 1 2 
