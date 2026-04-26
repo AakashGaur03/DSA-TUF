@@ -1,10 +1,7 @@
-11 G 13 Distance of nearest cell having 1
-Input Matrix:
-0 0 0 
-0 1 0 
-1 0 0 
+12 G 14 Surrounded Regions | Replace O with X
 
-Distance Matrix:
-2 1 2 
-1 0 1 
-0 1 2 
+Output Matrix:
+X X X X 
+X X X X 
+X X X X 
+X O X X 
