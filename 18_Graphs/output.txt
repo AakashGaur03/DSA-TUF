@@ -1,7 +1,2 @@
-12 G 14 Surrounded Regions | Replace O with X
-
-Output Matrix:
-X X X X 
-X X X X 
-X X X X 
-X O X X 
+13 G 15 Number of Enclaves
+Number of Enclaves: 3
