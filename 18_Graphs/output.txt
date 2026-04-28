@@ -1,2 +1,9 @@
-13 G 15 Number of Enclaves
-Number of Enclaves: 3
+14 G 16 Number of Distinct Islands
+
+Input Grid:
+1 1 0 1 1 
+1 0 0 0 0 
+0 0 0 1 1 
+0 0 0 1 0 
+
+Number of Distinct Islands: 2
