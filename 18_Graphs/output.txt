@@ -1,9 +1,2 @@
-14 G 16 Number of Distinct Islands
-
-Input Grid:
-1 1 0 1 1 
-1 0 0 0 0 
-0 0 0 1 1 
-0 0 0 1 0 
-
-Number of Distinct Islands: 2
+15 G 17 Bipartite Graph
+Graph is NOT Bipartite
