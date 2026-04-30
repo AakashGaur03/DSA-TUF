@@ -1,2 +1,2 @@
-15 G 17 Bipartite Graph
-Graph is NOT Bipartite
+16 G 19 Detect cycle in a directed graph using DFS
+Cycle detected
