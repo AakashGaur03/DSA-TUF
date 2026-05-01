@@ -1,2 +1,2 @@
-16 G 19 Detect cycle in a directed graph using DFS
-Cycle detected
+17 G 20 Find Eventual Safe States DFS
+Safe Nodes: 2 4 5 6 
