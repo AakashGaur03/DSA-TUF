@@ -1,2 +1,2 @@
-18 G 21 Topological Sort Algorithm DFS
-Topological Order: 5 4 2 3 1 0 
+20 G 23 Detect a Cycle in Directed Graph
+No cycle (DAG)
