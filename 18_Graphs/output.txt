@@ -1,2 +1,3 @@
-20 G 23 Detect a Cycle in Directed Graph
-No cycle (DAG)
+21 G 24 Course Schedule I and II
+All courses can be completed
+Valid course order: 0 1 2 3 
