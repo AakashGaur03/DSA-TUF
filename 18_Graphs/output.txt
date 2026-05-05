@@ -1,3 +1,2 @@
-21 G 24 Course Schedule I and II
-All courses can be completed
-Valid course order: 0 1 2 3 
+22_G_25_Find_Eventual_Safe_States_BFS_Topological_Sort
+Safe Nodes: 2 4 5 6 
