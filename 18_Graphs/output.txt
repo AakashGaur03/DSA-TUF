@@ -1,2 +1,2 @@
-22_G_25_Find_Eventual_Safe_States_BFS_Topological_Sort
-Safe Nodes: 2 4 5 6 
+23 G 26 Alien Dictionary Topological Sort
+Character Order: bdac
