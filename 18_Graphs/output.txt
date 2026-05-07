@@ -1,2 +1,3 @@
-23 G 26 Alien Dictionary Topological Sort
-Character Order: bdac
+24 G 27 Shortest Path in Directed Acyclic Graph Topological Sort
+Shortest Distance from Source Node 0:
+0 2 3 6 1 5 
