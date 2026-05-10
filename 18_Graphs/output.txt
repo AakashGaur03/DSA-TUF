@@ -1,2 +1,6 @@
-26 G 29 Word Ladder I Shortest Paths
-Shortest Transformation Length: 5
+27 G 30 Word Ladder II Shortest Paths
+
+All Shortest Transformation Sequences:
+
+bat -> pat -> pot -> poz -> coz
+bat -> bot -> pot -> poz -> coz
