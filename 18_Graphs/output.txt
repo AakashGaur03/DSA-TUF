@@ -1,6 +1,6 @@
-27 G 30 Word Ladder II Shortest Paths
+28 G 31 Word Ladder II Optimized Approach Shortest Paths
 
 All Shortest Transformation Sequences:
 
-bat -> pat -> pot -> poz -> coz
 bat -> bot -> pot -> poz -> coz
+bat -> pat -> pot -> poz -> coz
