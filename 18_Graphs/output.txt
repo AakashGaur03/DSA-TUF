@@ -1,6 +1,4 @@
-28 G 31 Word Ladder II Optimized Approach Shortest Paths
-
-All Shortest Transformation Sequences:
-
-bat -> bot -> pot -> poz -> coz
-bat -> pat -> pot -> poz -> coz
+29 G 32 Dijkstra Algorithm Using Priority Queue Part 1
+Distance from Source to 0 is 0
+Distance from Source to 1 is 1
+Distance from Source to 2 is 4
