@@ -1,4 +1,4 @@
-29 G 32 Dijkstra Algorithm Using Priority Queue Part 1
+30 G 33 Dijkstra Algorithm Using Set Part 2
 Distance from Source to 0 is 0
 Distance from Source to 1 is 1
 Distance from Source to 2 is 4

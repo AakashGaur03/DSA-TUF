@@ -100,3 +100,22 @@ int main() {
 
   return 0;
 }
+
+// Why Priority Queue and not normal Queue ?
+
+// We can still get the correct answer using Queue
+// but it will take much more operations.
+
+// Queue processes nodes in FIFO order
+// not based on shortest distance.
+
+// Priority Queue always processes
+// the node having the smallest distance first.
+
+// Because of this, shorter paths are explored earlier
+// and unnecessary relaxations are reduced.
+
+// So Dijkstra becomes efficient using Min Heap (Priority Queue).
+
+// BFS uses Queue because every edge has equal weight.
+// Dijkstra uses Priority Queue because edge weights can vary.
