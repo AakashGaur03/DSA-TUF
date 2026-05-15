@@ -1,2 +1,2 @@
-31 G 35 Print Shortest Path Dijkstra Algorithm
-Answer: 1 4 3 5 
+32 G 36 Shortest Distance in a Binary Maze
+Shortest Distance: 6
