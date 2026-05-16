@@ -1,2 +1,2 @@
-32 G 36 Shortest Distance in a Binary Maze
-Shortest Distance: 6
+33 G 37 Path With Minimum Effort
+2
