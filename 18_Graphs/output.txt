@@ -1,2 +1,2 @@
-33 G 37 Path With Minimum Effort
-2
+34 G 38 Cheapest Flights Within K Stops
+Cheapest Flight Cost: 500

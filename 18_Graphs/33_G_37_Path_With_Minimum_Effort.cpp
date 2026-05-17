@@ -69,5 +69,4 @@ int main() {
   cout << minimumEffor(heights) << endl;
 
   return 0;
-  return 0;
 }
