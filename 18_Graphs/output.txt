@@ -1,2 +1,2 @@
-34 G 38 Cheapest Flights Within K Stops
-Cheapest Flight Cost: 500
+35 G 39 Minimum Multiplications to Reach End
+Minimum Steps Required : 2
