@@ -1,2 +1,2 @@
-35 G 39 Minimum Multiplications to Reach End
-Minimum Steps Required : 2
+36 G 40 Number of Ways to Arrive at Destination
+Number of Ways : 4
