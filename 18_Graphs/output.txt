@@ -1,1 +1,2 @@
-41_G_44_Minimum_Spanning_Tree_Theory
+42_G_45_Prims_Algorithm_Minimum_Spanning_Tree
+MST Weight : 16
