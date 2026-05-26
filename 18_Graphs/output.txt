@@ -1,2 +1,1 @@
-42_G_45_Prims_Algorithm_Minimum_Spanning_Tree
-MST Weight : 16
+43 G 46 Disjoint Set | Union by Rank | Union by Size | Path Compression
