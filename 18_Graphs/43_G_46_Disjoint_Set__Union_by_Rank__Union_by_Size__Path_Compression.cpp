@@ -66,5 +66,45 @@ int main() {
   // Find Rank of Ultimate Parents pu and pv
   // Connect Smaller Rank to Larger Rank always
 
+  // In Union
+  // So when we call each value like {1,2} or {2,3} or ...
+  // We check there parents and there Rank
+  // So Parent Array value will change acc to Rank and Rank will be give ++ when
+  // new Node or Graph is being added and there Rank are same
+  // After {1,2} or {2,3} our Rank and Parent will look like
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_2
+  //  After {4,5}
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_3
+  //  After {6,7}
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_4
+
+  //  After {5,6}
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_5
+
+  // NOTE whenever we will be asked that does x & y belong to same component we
+  // will use findParent it will help us get the Ultimate Parents in normal
+  // codition it will take log N as Refer to
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_6
+  // To make it work in Constant Time we do Path Compression
+
+  // Path Compression (Performed in O(4*alpha) alpha is nearly 1 so considered
+  // constant) Means attaching nested Nodes to the Ulitmate Parent directly
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_7
+  // And NOTE when we do Path Compression we cant reduce the Rank because there
+  // can be multiple nodes so thats why it is called Rank and not Height
+
+  // So what we will do is
+  // findParent(u){
+  //   if(u == parent[u]){
+  //     return u; // Means Self Looped
+  //   }
+
+  //   return findParent(parent[u]);
+  // }
+  // Before findParent
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_8
+  // After
+  // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_9
+
   return 0;
 }
