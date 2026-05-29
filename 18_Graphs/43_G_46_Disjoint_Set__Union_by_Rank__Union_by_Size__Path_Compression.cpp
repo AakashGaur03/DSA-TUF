@@ -1,6 +1,99 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class DisjointSet {
+  vector<int> rank, parent;
+
+public:
+  DisjointSet(int n) {
+    rank.resize(n + 1, 0); // Resize and everything is 0 // Works for both 0
+                           // based and 1 based indexing
+    parent.resize(n + 1);
+    for (int i = 0; i <= n; i++) {
+      parent[i] = i; // In Parent Initally everything is set as themselves
+    }
+  }
+
+  int findUPar(int node) { // Ultimate Parent
+    if (node == parent[node]) {
+      return node;
+    }
+
+    // return findUPar(parent[node]); // Normal Recursion
+
+    return parent[node] = findUPar(parent[node]); // Path Compression
+  }
+
+  void unionByRank(int u, int v) {
+    int ulp_u = findUPar(u);
+    int ulp_v = findUPar(v);
+
+    if (ulp_u == ulp_v) {
+      // Already belong to same component
+      return;
+    }
+
+    if (rank[ulp_u] < rank[ulp_v]) {
+      // Means u gets attached to v as v is greater
+      parent[ulp_u] = ulp_v;
+    } else if (rank[ulp_v] < rank[ulp_u]) {
+      // Means v gets attached to u as u is greater
+      parent[ulp_v] = ulp_u;
+    } else {
+      // rank[ulp_v] == rank[ulp_u]
+      // We can attach it anywhere But need to update Rank too
+      parent[ulp_v] = ulp_u;
+      rank[ulp_u]++;
+    }
+  }
+};
+class DisjointSet2 {
+  vector<int> parent, size;
+
+public:
+  DisjointSet2(int n) {
+    parent.resize(n + 1);
+    size.resize(n + 1);
+    for (int i = 0; i <= n; i++) {
+      parent[i] = i; // In Parent Initally everything is set as themselves
+      size[i] = 1;   // In Size Initally everything is set as 1
+    }
+  }
+
+  int findUPar(int node) { // Ultimate Parent
+    if (node == parent[node]) {
+      return node;
+    }
+
+    // return findUPar(parent[node]); // Normal Recursion
+
+    return parent[node] = findUPar(parent[node]); // Path Compression
+  }
+
+  void unionBySize(int u, int v) {
+    int ulp_u = findUPar(u);
+    int ulp_v = findUPar(v);
+
+    if (ulp_u == ulp_v) {
+      // Already belong to same component
+      return;
+    }
+
+    if (size[ulp_u] < size[ulp_v]) {
+      // Means u gets attached to v as v is greater
+      parent[ulp_u] = ulp_v;
+      // when we attach to v so size of V will be increased by U
+      size[ulp_v] += size[ulp_u];
+    } else {
+      // rank[ulp_v] == rank[ulp_u] || rank[ulp_v] < rank[ulp_u]
+      // We can attach v to u in both cases
+      parent[ulp_v] = ulp_u;
+      // when we attach to U so size of U will be increased by V
+      size[ulp_u] += size[ulp_v];
+    }
+  }
+};
+
 int main() {
 
   cout << "43 G 46 Disjoint Set | Union by Rank | Union by Size | Path "
@@ -87,7 +180,8 @@ int main() {
   // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_6
   // To make it work in Constant Time we do Path Compression
 
-  // Path Compression (Performed in O(4*alpha) alpha is nearly 1 so considered
+  // Path Compression + Union by Rank/Size together give
+  // amortized time complexity of O(alpha(N)) alpha is nearly 1 so considered
   // constant) Means attaching nested Nodes to the Ulitmate Parent directly
   // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_7
   // And NOTE when we do Path Compression we cant reduce the Rank because there
@@ -96,7 +190,7 @@ int main() {
   // So what we will do is
   // findParent(u){
   //   if(u == parent[u]){
-  //     return u; // Means Self Looped
+  //     return u; // Node is its own parent
   //   }
 
   //   return findParent(parent[u]);
@@ -105,6 +199,73 @@ int main() {
   // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_8
   // After
   // 43_G_46_Disjoint_Set__Union_by_Rank__Union_by_Size__Path_Compression_9
+
+  /*
+   if (rank[ulp_u] < rank[ulp_v]) {
+      // Means u gets attached to v as v is greater
+      parent[ulp_u] = ulp_v;
+    } else if (rank[ulp_v] < rank[ulp_u]) {
+      // Means v gets attached to u as u is greater
+      parent[ulp_v] = ulp_u;
+    } else {
+      // rank[ulp_v] == rank[ulp_u]
+      // We can attach it anywhere But need to update Rank too
+      parent[ulp_v] = ulp_u;
+      rank[ulp_u]++;
+    }
+  */
+
+  // We are intentionally attaching Smaller to Larger so that Height Dont gets
+  // increased if we connect Larger to Smaller
+  // Attaching larger tree to smaller tree may increase depth significantly  So
+  // to Avoid running Path Compression multiple times we do Smaller to Larger
+
+  // We can also use size instead of rank
+  // initial Config All size will be marked as 1 as each node is considered its
+  // own parent
+  // It is similar to Rank But It will keep track of the size of each component
+
+  // UnionByRank and UnionBySize both have same TC and SC its just UnionBySize
+  // is more intutive and makes more sense
+  // TC = O(4 alpha) that is near about constant
+  // O(α(N)) that is O(1) amortized
+  // Amortized means Some individual operations may take longer, but over MANY
+  // operations, the average time per operation becomes nearly constant.
+
+  DisjointSet ds(7);
+  ds.unionByRank(1, 2);
+  ds.unionByRank(2, 3);
+  ds.unionByRank(4, 5);
+  ds.unionByRank(6, 7);
+  // If 3 and 7 belong to same Component or not
+  if (ds.findUPar(3) == ds.findUPar(7)) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
+  ds.unionByRank(3, 7);
+  if (ds.findUPar(3) == ds.findUPar(7)) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
+  DisjointSet2 ds2(7);
+  ds2.unionBySize(1, 2);
+  ds2.unionBySize(2, 3);
+  ds2.unionBySize(4, 5);
+  ds2.unionBySize(6, 7);
+  // If 3 and 7 belong to same Component or not
+  if (ds2.findUPar(3) == ds2.findUPar(7)) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
+  ds2.unionBySize(3, 7);
+  if (ds2.findUPar(3) == ds2.findUPar(7)) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
 
   return 0;
 }
