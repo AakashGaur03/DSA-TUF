@@ -1,5 +1,2 @@
-43 G 46 Disjoint Set | Union by Rank | Union by Size | Path Compression
-NO
-Yes
-NO
-Yes
+44 G 47 Kruskals Algorithm Minimum Spanning Tree
+MST Weight = 16
