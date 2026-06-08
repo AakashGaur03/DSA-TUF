@@ -1,2 +1,2 @@
-44 G 47 Kruskals Algorithm Minimum Spanning Tree
-MST Weight = 16
+45 G 48 Number of Provinces Disjoint Set
+Number of Provinces: 2
