@@ -1,2 +1,2 @@
-45 G 48 Number of Provinces Disjoint Set
-Number of Provinces: 2
+46 G 49 Number of Operations to Make Network Connected DSU
+1
