@@ -1,2 +1,4 @@
-46 G 49 Number of Operations to Make Network Connected DSU
-1
+47 G 50 Accounts Merge DSU
+John john00@mail.com john_newyork@mail.com johnsmith@mail.com 
+Mary mary@mail.com 
+John johnnybravo@mail.com 

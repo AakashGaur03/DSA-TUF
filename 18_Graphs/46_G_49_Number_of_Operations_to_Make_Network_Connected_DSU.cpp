@@ -2,15 +2,15 @@
 using namespace std;
 
 class DisjointSet {
-  vector<int> rank, parent;
+  vector<int> parent, size;
 
 public:
   DisjointSet(int n) {
-    rank.resize(n + 1, 0); // Resize and everything is 0 // Works for both 0
-                           // based and 1 based indexing
     parent.resize(n + 1);
+    size.resize(n + 1);
     for (int i = 0; i <= n; i++) {
       parent[i] = i; // In Parent Initally everything is set as themselves
+      size[i] = 1;   // In Size Initally everything is set as 1
     }
   }
 
@@ -24,7 +24,7 @@ public:
     return parent[node] = findUPar(parent[node]); // Path Compression
   }
 
-  void unionByRank(int u, int v) {
+  void unionBySize(int u, int v) {
     int ulp_u = findUPar(u);
     int ulp_v = findUPar(v);
 
@@ -33,17 +33,17 @@ public:
       return;
     }
 
-    if (rank[ulp_u] < rank[ulp_v]) {
+    if (size[ulp_u] < size[ulp_v]) {
       // Means u gets attached to v as v is greater
       parent[ulp_u] = ulp_v;
-    } else if (rank[ulp_v] < rank[ulp_u]) {
-      // Means v gets attached to u as u is greater
-      parent[ulp_v] = ulp_u;
+      // when we attach to v so size of V will be increased by U
+      size[ulp_v] += size[ulp_u];
     } else {
-      // rank[ulp_v] == rank[ulp_u]
-      // We can attach it anywhere But need to update Rank too
+      // rank[ulp_v] == rank[ulp_u] || rank[ulp_v] < rank[ulp_u]
+      // We can attach v to u in both cases
       parent[ulp_v] = ulp_u;
-      rank[ulp_u]++;
+      // when we attach to U so size of U will be increased by V
+      size[ulp_u] += size[ulp_v];
     }
   }
 };
@@ -58,7 +58,7 @@ int solve(int n, vector<vector<int>> &edges) {
     if (ds.findUPar(u) == ds.findUPar(v)) {
       cntExtra++;
     } else {
-      ds.unionByRank(u, v);
+      ds.unionBySize(u, v);
     }
   }
 
