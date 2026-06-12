@@ -1,4 +1,2 @@
-47 G 50 Accounts Merge DSU
-John john00@mail.com john_newyork@mail.com johnsmith@mail.com 
-Mary mary@mail.com 
-John johnnybravo@mail.com 
+48 G 51 Number of Islands II Online Queries DSU
+1 1 2 2 
