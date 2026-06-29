@@ -1,2 +1,2 @@
-49 G 52 Making a Large Island DSU
-3
+50 G 53 Most Stones Removed with Same Row or Column DSU
+Maximum stones that can be removed = 5
