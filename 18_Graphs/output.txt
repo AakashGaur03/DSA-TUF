@@ -1,2 +1,2 @@
-50 G 53 Most Stones Removed with Same Row or Column DSU
-Maximum stones that can be removed = 5
+51 G 54 Strongly Connected Components Kosaraju Algorithm
+Number of SCCs: 3
