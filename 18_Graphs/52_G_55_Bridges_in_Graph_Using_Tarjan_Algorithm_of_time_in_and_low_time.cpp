@@ -64,7 +64,7 @@ int main() {
   // 52_G_55_Bridges_in_Graph_Using_Tarjan_Algorithm_of_time_in_and_low_time_2
   // 52_G_55_Bridges_in_Graph_Using_Tarjan_Algorithm_of_time_in_and_low_time_3
 
-  // time[] -> DFS time insertion
+  // time[] -> DFS time insertion (Store the time of insertion during DFS)
   // low[] -> min lowest time insertion of all adjacent nodes apart from parent
 
   //   Critical Connections in a Network

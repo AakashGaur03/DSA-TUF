@@ -1,3 +1,2 @@
-52 G 55 Bridges in Graph Using Tarjan Algorithm of time in and low time
-Bridges:
-3 1
+53 G 56 Articulation Point in Graph
+Articulation Points: 1 3 
