@@ -35,6 +35,35 @@ public:
     }
     cout << endl;
   }
+
+  void deleteFromHeap() {
+    // TC O(Log N)
+
+    if (size == 0) {
+      cout << "Nothing to delete" << endl;
+      return;
+    }
+    // Step 1: Swap Root node with Last Node
+    arr[1] = arr[size]; // This or Swap means the same
+    // Step 2: Remove Last node Now ( Removes the Original Root Node)
+    size--;
+
+    // Step 3: Propogate Root node to its correct position
+    int i = 1;
+    while (i < size) {
+      int leftIdx = 2 * i;
+      int rightIdx = 2 * i + 1;
+      if (leftIdx < size && arr[i] < arr[leftIdx]) {
+        swap(arr[leftIdx], arr[i]);
+        i = leftIdx;
+      } else if (rightIdx < size && arr[i] < arr[rightIdx]) {
+        swap(arr[rightIdx], arr[i]);
+        i = rightIdx;
+      } else {
+        return;
+      }
+    }
+  }
 };
 
 int main() {
@@ -145,5 +174,18 @@ int main() {
   //    64     63
   //   / \
   // 60  62
+
+  // Deletion in Heap
+  // Deletion means we are mentioned root node to be deleted
+  // Steps
+  // Step 1: Swap Root node with Last Node
+  // Step 2: Remove Last node Now ( Removes the Original Root Node)
+  // Step 3: Propogate Root node to its correct position
+  // Compare Root with its Children If Children is greater then Swap
+  h.deleteFromHeap();
+  h.print();
+  h.deleteFromHeap();
+  h.print();
+
   return 0;
 }

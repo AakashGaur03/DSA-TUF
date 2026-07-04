@@ -1,2 +1,4 @@
 1 Introduction to Heap
 65 64 63 60 62 
+64 62 63 60 
+62 60 63 
