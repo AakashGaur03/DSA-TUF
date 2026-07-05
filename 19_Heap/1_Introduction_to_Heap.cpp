@@ -108,10 +108,17 @@ int main() {
   //                    0   1   2   3   4   5
   // arr will be like { X, 60, 50, 40, 30, 20}
 
+  // 1 based Indexing
   // Note Node will be : ith index
   // Left Child : (2 * i) index
   // Right Child : (2 * i + 1)index
   // Parent : (i/2) index
+
+  // 0 based Indexing
+  // Note Node will be : ith index
+  // Left Child : (2 * i +1) index
+  // Right Child : (2 * i + 2)index
+  // Parent : (i - 1) / 2
 
   // Now lets try to Insert a value in heap
   // val = 55
