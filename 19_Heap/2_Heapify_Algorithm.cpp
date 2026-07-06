@@ -106,6 +106,21 @@ void heapifyMinHeap(vector<int> &arr, int n, int i) {
   }
 }
 
+void heapSort(vector<int> &arr, int n) {
+  // O(N Log N)
+  // First we build Heap that takes O(N) and then heap sort O(log N)
+  int size = n;
+  while (size > 1) {
+    // Step 1
+    swap(arr[size], arr[1]);
+    size--;
+
+    // Step 2
+    heapify(arr, size + 1, 1); // we will always send 1 as we need to place root
+                               // at its correct place
+  }
+}
+
 int main() {
   cout << "2 Heapify Algorithm" << endl;
 
@@ -152,6 +167,69 @@ int main() {
     cout << arr2[i] << " ";
   }
   cout << endl;
+
+  // Heap Sort
+  // So we are given a Max Heap
+  //          70
+  //       /     \
+  //      60      55
+  //     /  \   
+  //   45   50
+
+  //  arr = {-1,70,60,55,45,50}
+
+  // Algo
+  // Step 1 Swap First with Last Element
+  //   {50,60,55,45,70}
+  // Now 70 is at its correct position and we can do size--
+
+  // Now Step 2 Take Root to its correct Position
+  // use Heapify Algo
+
+  // And Repeat till size is 1 or 0
+
+  heapSort(arr, n - 1);
+  cout << "Printing Heap Sort: " << endl;
+  for (int i = 1; i < n; i++) {
+    cout << arr[i] << " ";
+  }
+  cout << endl;
+
+  cout << "Priority Queue" << endl;
+  // We can use Prioirty Queue to use MinHeap Maxheap
+  // Default it creates maxheap
+  priority_queue<int> pq; // it creates maxHeap
+  pq.push(4);
+  pq.push(2);
+  pq.push(5);
+  pq.push(3);
+  cout << "Element at Top: " << pq.top() << endl;
+  pq.pop();
+  cout << "Element at Top after pop: " << pq.top() << endl;
+  cout << "Size is: " << pq.size() << endl;
+  if (pq.empty()) {
+    cout << "PQ is Empty" << endl;
+  } else {
+    cout << "PQ is not Empty" << endl;
+  }
+
+  cout << "Min Heap" << endl;
+
+  // min heap
+  priority_queue<int, vector<int>, greater<int>> minHeap;
+  minHeap.push(4);
+  minHeap.push(2);
+  minHeap.push(5);
+  minHeap.push(3);
+  cout << "Element at Top: " << minHeap.top() << endl;
+  minHeap.pop();
+  cout << "Element at Top after pop: " << minHeap.top() << endl;
+  cout << "Size is: " << minHeap.size() << endl;
+  if (minHeap.empty()) {
+    cout << "minHeap is Empty" << endl;
+  } else {
+    cout << "minHeap is not Empty" << endl;
+  }
 
   return 0;
 }

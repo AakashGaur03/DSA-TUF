@@ -3,3 +3,15 @@ Printing array:
 55 53 54 52 50 
 Printing array 2: 
 50 52 55 54 53 
+Printing Heap Sort: 
+50 52 53 54 55 
+Priority Queue
+Element at Top: 5
+Element at Top after pop: 4
+Size is: 3
+PQ is not Empty
+Min Heap
+Element at Top: 2
+Element at Top after pop: 3
+Size is: 3
+minHeap is not Empty
