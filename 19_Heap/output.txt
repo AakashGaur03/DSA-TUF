@@ -1,17 +1,12 @@
-2 Heapify Algorithm
-Printing array: 
-55 53 54 52 50 
-Printing array 2: 
-50 52 55 54 53 
-Printing Heap Sort: 
-50 52 53 54 55 
-Priority Queue
-Element at Top: 5
-Element at Top after pop: 4
-Size is: 3
-PQ is not Empty
-Min Heap
-Element at Top: 2
-Element at Top after pop: 3
-Size is: 3
-minHeap is not Empty
+3 Heaps Interview Questions
+Q1 Kth Smallest/Largest Element
+Array 1: 10 5 4 3 48 6 2 33 53 10 
+4th Smallest Element: 5
+4th Largest Element: 10
+
+----------------------
+
+Array 2: 7 10 4 3 20 15 
+3th Smallest Element: 7
+3th Largest Element: 10
+Q2 Is Binary Tree Heap
