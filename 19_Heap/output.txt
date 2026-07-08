@@ -1,12 +1,3 @@
-3 Heaps Interview Questions
-Q1 Kth Smallest/Largest Element
-Array 1: 10 5 4 3 48 6 2 33 53 10 
-4th Smallest Element: 5
-4th Largest Element: 10
-
-----------------------
-
-Array 2: 7 10 4 3 20 15 
-3th Smallest Element: 7
-3th Largest Element: 10
-Q2 Is Binary Tree Heap
+Merge Two Binary Max-Heap
+Merge 2 Binary Max-Heap
+Merged Max Heap: 12 10 9 2 5 7 6 
