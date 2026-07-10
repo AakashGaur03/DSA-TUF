@@ -1,9 +1,7 @@
-Merge Two Binary Max-Heap
-Merge 2 Binary Max-Heap
-Merged Max Heap: 12 10 9 2 5 7 6 
 ----------------------------------------------
-Q2 Minimum Cost of Ropes 
-Minimum Cost of Ropes: 29
+Q1 Kth Largest Sum Subaaray
+Array: 1 -2 3 -4 5 
+K = 2
+Brute Force Answer : 4
+Heap Answer        : 4
 ----------------------------------------------
-Q3 Convert BST to Min Heap
-Preorder of Min Heap: 1 2 3 4 5 6 7 
