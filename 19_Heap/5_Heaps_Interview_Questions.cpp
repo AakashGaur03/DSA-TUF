@@ -123,6 +123,74 @@ vector<int> mergeKSortedArrays(vector<vector<int>> &kArrays, int k) {
   return ans;
 }
 
+class Node {
+public:
+  int data;
+  Node *next;
+
+public:
+  Node(int data1, Node *next1) {
+    data = data1;
+    next = next1;
+  }
+
+  // we can also add if we dont want to assign null
+  // in code again and again
+public:
+  Node(int data1) {
+    data = data1;
+    next = nullptr;
+  }
+};
+
+class compareLists {
+public:
+  bool operator()(Node *a, Node *b) { return a->data > b->data; }
+};
+
+Node *mergeKLists(vector<Node *> &listArray) {
+  // TC (N* K log K)
+  // SC (K)
+  priority_queue<Node *, vector<Node *>, compareLists> minHeap;
+
+  int k = listArray.size();
+
+  if (k == 0) {
+    return nullptr;
+  }
+  // Step 1
+  for (int i = 0; i < k; i++) {
+    if (listArray[i] != nullptr) {
+      minHeap.push(listArray[i]);
+    }
+  }
+
+  Node *head = nullptr;
+  Node *tail = nullptr;
+
+  while (minHeap.size() > 0) {
+    Node *temp = minHeap.top();
+    minHeap.pop();
+
+    if (temp->next != nullptr) {
+      minHeap.push(temp->next);
+    }
+    if (head == nullptr) {
+      // LL is empty
+      head = temp;
+      tail = temp;
+
+    } else {
+      // Insert in LL
+      tail->next = temp;
+      tail = tail->next;
+    }
+  }
+  if (tail != nullptr) {
+    tail->next = nullptr;
+  }
+  return head;
+}
 int main() {
 
   cout << "----------------------------------------------" << endl;
@@ -185,6 +253,49 @@ int main() {
   cout << "Merged Sorted Array: ";
   for (int x : ans) {
     cout << x << " ";
+  }
+  cout << endl;
+
+  cout << "----------------------------------------------" << endl;
+
+  cout << "Q3 Merge K Sorted Linked List" << endl;
+
+  // we dont ahve to use new List we need to update the Links
+  // Brute
+  // TC O(N*k (log N*K))
+  // SC O(N*K)
+  // Create new Vector put all elements in that
+  // Sort that vector
+  // Join all existing linked lists (Last of one to Start of other)
+  // Replace existing data with vector sorted data
+
+  // Optimal
+  // Create MinHeap with first data as done in Merge K sorted Arrays
+  // Create Linked List 1: 1 -> 4 -> 7
+  Node *head1 = new Node(1);
+  head1->next = new Node(4);
+  head1->next->next = new Node(7);
+
+  // Create Linked List 2: 2 -> 5 -> 8
+  Node *head2 = new Node(2);
+  head2->next = new Node(5);
+  head2->next->next = new Node(8);
+
+  // Create Linked List 3: 3 -> 6 -> 9
+  Node *head3 = new Node(3);
+  head3->next = new Node(6);
+  head3->next->next = new Node(9);
+
+  // Store all heads
+  vector<Node *> listArray = {head1, head2, head3};
+
+  Node *mergedHead = mergeKLists(listArray);
+
+  cout << "Merged Linked List: ";
+  Node *temp = mergedHead;
+  while (temp != nullptr) {
+    cout << temp->data << " ";
+    temp = temp->next;
   }
   cout << endl;
 
