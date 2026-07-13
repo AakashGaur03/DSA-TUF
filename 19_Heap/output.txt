@@ -1,17 +1,4 @@
+6_Heaps_Interview_Questions_Hard
 ----------------------------------------------
-Q1 Kth Largest Sum Subaaray
-Array: 1 -2 3 -4 5 
-K = 2
-Brute Force Answer : 4
-Heap Answer        : 4
-----------------------------------------------
-Q2 Merge K Sorted Arrays
-Input Arrays:
-Array 1: 1 4 7 
-Array 2: 2 5 8 
-Array 3: 3 6 9 
-Merged Sorted Array: 1 2 3 4 5 6 7 8 9 
-----------------------------------------------
-Q3 Merge K Sorted Linked List
-Merged Linked List: 1 2 3 4 5 6 7 8 9 
-----------------------------------------------
+Q1 Smallest Range in K lists
+Smallest Range: [20, 24]
