@@ -70,6 +70,70 @@ vector<int> kSorted(vector<vector<int>> &a, int k, int n) {
   return {start, end};
 }
 
+int signum(int a, int b) {
+  if (a == b) {
+    return 0;
+  } else if (a > b) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+
+void callmedian(int element, priority_queue<int> &maxi,
+                priority_queue<int, vector<int>, greater<int>> &mini,
+                int &median) {
+  switch (signum(maxi.size(), mini.size())) {
+  case 0:
+    if (element > median) {
+      mini.push(element);
+      median = mini.top();
+    } else {
+      maxi.push(element);
+      median = maxi.top();
+    }
+    break;
+  case 1:
+    if (element > median) {
+      mini.push(element);
+      median = (mini.top() + maxi.top()) / 2;
+    } else {
+      mini.push(maxi.top());
+      maxi.pop();
+      maxi.push(element);
+      median = (mini.top() + maxi.top()) / 2;
+    }
+    break;
+  case -1:
+    if (element > median) {
+      maxi.push(mini.top());
+      mini.pop();
+      mini.push(element);
+      median = (mini.top() + maxi.top()) / 2;
+    } else {
+      maxi.push(element);
+      median = (mini.top() + maxi.top()) / 2;
+    }
+    break;
+  default:
+    break;
+  }
+}
+
+vector<int> findMedian(vector<int> &arr, int n) {
+  // TC O(n log n)
+  vector<int> ans;
+  priority_queue<int> maxHeap;
+  priority_queue<int, vector<int>, greater<int>> minHeap;
+  int median = 0;
+  for (int i = 0; i < n; i++) {
+    callmedian(arr[i], maxHeap, minHeap, median);
+    ans.push_back(median);
+  }
+
+  return ans;
+}
+
 int main() {
   cout << "6_Heaps_Interview_Questions_Hard" << endl;
   cout << "----------------------------------------------" << endl;
@@ -120,6 +184,70 @@ int main() {
   vector<int> ans = kSorted(nums, 3, 5);
 
   cout << "Smallest Range: [" << ans[0] << ", " << ans[1] << "]" << endl;
+
+  cout << "----------------------------------------------" << endl;
+  cout << "Median of a Stream" << endl;
+  //   Median of a Stream
+  // Last Updated : 11 May, 2026
+  // Given a data stream arr[] where integers are read sequentially, Determine
+  // the median of the elements encountered so far after each new integer is
+  // read.
+
+  // There are two cases for median on the basis of data set size.
+
+  // If the data set has an odd number then the middle one will be consider as
+  // median. If the data set has an even number then there is no distinct middle
+  // value and the median will be the arithmetic mean of the two middle values.
+  // Example:
+
+  // Input:  arr[] = [5, 15, 1, 3, 2, 8]
+  // Output: [5.00, 10.00, 5.00, 4.00, 3.00, 4.00]
+  // Explanation:
+  // After reading 1st element of stream - 5 -> median = 5
+  // After reading 2nd element of stream - 5, 15 -> median = (5+15)/2 = 10
+  // After reading 3rd element of stream - 5, 15, 1 -> median = 5
+  // After reading 4th element of stream - 5, 15, 1, 3 ->  median = (3+5)/2 = 4
+  // After reading 5th element of stream - 5, 15, 1, 3, 2 -> median = 3
+  // After reading 6th element of stream - 5, 15, 1, 3, 2, 8 ->  median =
+  // (3+5)/2 = 4
+
+  // Note this is a Running Stream so After sorting an Element can come again
+  // So we need to take care of also what kinda sorting we are applying
+
+  // Approach 1
+  // Sort using Insertion Sort O(N*N)
+  // Get the Median O(1)
+
+  // Approach 2
+  // So if we see we have Three Case
+  // Case 1 ODD size Array
+  // Left has n-1 elements Right has n elements
+
+  // Case 2 ODD size Array
+  // Left has n elements Right has n-1 elements
+
+  // Case 3 EVEN size Array
+  // Left has n elements Right has n elements
+
+  // WE ALSO HAVE AN SIGNUM function what it does is
+  // it takes two number signum(a,b) and
+  // gives 0 if a == b
+  // gives 1 if a > b
+  // gives -1 if a < b
+
+  vector<int> stream = {5, 15, 1, 3, 2, 8};
+
+  vector<int> median = findMedian(stream, stream.size());
+
+  cout << "Input Stream : ";
+  for (int x : stream)
+    cout << x << " ";
+
+  cout << "\nRunning Median: ";
+  for (int x : median)
+    cout << x << " ";
+
+  cout << endl;
 
   return 0;
 }
