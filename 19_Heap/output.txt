@@ -1,4 +1,4 @@
-7 Task Scheduler
-Tasks: A A A B B B 
-Cooldown (n): 2
-Minimum CPU intervals required: 8
+8 Hand of Straights
+Hand: 1 2 3 6 2 3 4 7 8 
+Group Size: 3
+Output: true
