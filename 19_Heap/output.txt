@@ -1,4 +1,3 @@
-8 Hand of Straights
-Hand: 1 2 3 6 2 3 4 7 8 
-Group Size: 3
-Output: true
+9 Top K Frequent Elements
+Example 1 Output: 2 1 
+Example 2 Output: 1 
