@@ -16,17 +16,15 @@ public:
   }
 
   vector<int> getNewsFeed(int userId) {}
-}
 
   void follow(int followerId, int followeeId) {
-  followMap[followerId].insert(followeeId);
-}
+    followMap[followerId].insert(followeeId);
+  }
 
-void unfollow(int followerId, int followeeId) {
-  followMap[followerId].erase(followeeId);
-}
-}
-;
+  void unfollow(int followerId, int followeeId) {
+    followMap[followerId].erase(followeeId);
+  }
+};
 
 int main() {
   cout << "9 Design Twitter" << endl;
