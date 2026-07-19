@@ -1,3 +1,6 @@
-9 Top K Frequent Elements
-Example 1 Output: 2 1 
-Example 2 Output: 1 
+10 Design Twitter Optimized
+Design Twitter Test
+Feed of User 1: 5 
+Feed of User 1 after following User 2: 6 5 
+Feed of User 1 after unfollowing User 2: 5 
+Feed of User 2 following User 1: 12 11 10 
