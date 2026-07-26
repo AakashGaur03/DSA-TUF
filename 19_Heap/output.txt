@@ -1,1 +1,3 @@
-12 Find Median from Data Stream
+12 Maximum Sum Combination
+Brute Force: 7 6 
+Optimized: 7 6 
