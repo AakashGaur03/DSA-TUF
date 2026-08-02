@@ -1,5 +1,1 @@
-1 DP 1 Introduction to Dynamic Programming | Memoization | Tabulation | Space Optimization Techniques
-5Recursion: 5
-Memoization: 5
-Tabulation: 5
-Space Optimized: 5
+2 DP 2 Climbing Stairs | Learn How to Write 1D Recurrence Relations
