@@ -1,4 +1,4 @@
-3 DP 3 Frog Jump | Learn to write 1D DP
+3 DP 4 Frog Jump with K Distance
 Recursion: 20
 Memoization: 20
 Tabulation: 20
