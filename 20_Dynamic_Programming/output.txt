@@ -1,7 +1,3 @@
-5 DP 5 Maximum Sum of Non Adjacent Elements House Robber DP on Subsequences
+6 DP 6 House Robber 2 DP on Subsequences
 
-Final Answer = Recursion: 11
-Memoization: 11
-Tabulation: 11
-Space Optimized: 11
-11
+Final Answer = 10
