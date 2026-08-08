@@ -1,3 +1,6 @@
-6 DP 6 House Robber 2 DP on Subsequences
-
-Final Answer = 10
+7 DP 7 Ninjas Training 2D DP
+Recursion Answer: 11
+Memoization Answer: 11
+Tabulation Answer: 11
+Space Optimization Answer: 11
+Final Answer: 11
