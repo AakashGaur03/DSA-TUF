@@ -1,6 +1,6 @@
-7 DP 7 Ninjas Training 2D DP
-Recursion Answer: 11
-Memoization Answer: 11
-Tabulation Answer: 11
-Space Optimization Answer: 11
-Final Answer: 11
+8 DP 8 Grid Unique Paths
+Answer: Recursion: 28
+Memoization: 28
+Tabulation: 28
+Space Optimization: 28
+28
