@@ -1,6 +1,6 @@
-8 DP 8 Grid Unique Paths
-Answer: Recursion: 28
-Memoization: 28
-Tabulation: 28
-Space Optimization: 28
-28
+9 DP 9 Unique Paths 2 | DP on Grid with Maze Obstacles | Unique Paths II
+Answer: Recursion: 2
+Memoization: 2
+Tabulation: 2
+Space Optimization: 2
+2
