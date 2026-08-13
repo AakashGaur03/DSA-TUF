@@ -1,5 +1,7 @@
-DP 10 Minimum Path Sum in Grid
-Recursion: 7
-Memoization: 7
-Tabulation: 7
-Space Optimization: 7
+11 DP 11 Triangle | Fixed Starting Point and Variable Ending Point | DP on GRIDS
+
+Minimum Path Sum: Recursion: 11
+Memoization: 11
+Tabulation: 11
+Space Optimization: 11
+11
