@@ -1,7 +1,7 @@
-11 DP 11 Triangle | Fixed Starting Point and Variable Ending Point | DP on GRIDS
+12 DP 12 Minimum Maximum Falling Path Sum | Variable Starting Point and Variable Ending Point | DP on GRIDS
 
-Minimum Path Sum: Recursion: 11
-Memoization: 11
-Tabulation: 11
-Space Optimization: 11
-11
+Maximum Path Sum: Recursion: 25
+Memoization: 25
+Tabulation: 25
+Space Optimization: 25
+25
