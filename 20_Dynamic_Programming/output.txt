@@ -1,7 +1,5 @@
-12 DP 12 Minimum Maximum Falling Path Sum | Variable Starting Point and Variable Ending Point | DP on GRIDS
+13 DP 13 Cherry Pickup II | 3D DP
 
-Maximum Path Sum: Recursion: 25
-Memoization: 25
-Tabulation: 25
-Space Optimization: 25
-25
+Maximum Cherries: Recursion: 24
+Memoization: 24
+24
