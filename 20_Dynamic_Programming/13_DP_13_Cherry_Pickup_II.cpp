@@ -77,6 +77,96 @@ int memoizationSol(int i, int j1, int j2, vector<vector<int>> &grid,
   return dp[i][j1][j2] = maxi;
 }
 
+int tabulationSol(int r, int c, vector<vector<int>> &grid,
+                  vector<vector<vector<int>>> &dp) {
+  // Base Case
+  for (int j1 = 0; j1 < c; j1++) {
+    for (int j2 = 0; j2 < c; j2++) {
+      if (j1 == j2) {
+        dp[r - 1][j1][j2] += grid[r - 1][j1];
+      } else {
+        dp[r - 1][j1][j2] = grid[r - 1][j1] + grid[r - 1][j2];
+      }
+    }
+  }
+
+  for (int i = r - 2; i >= 0; i--) {
+    for (int j1 = 0; j1 < c; j1++) {
+      for (int j2 = 0; j2 < c; j2++) {
+        int maxi = -1e8;
+        // -1 , 0, 1
+        for (int dj1 = -1; dj1 <= +1; dj1++) {
+          for (int dj2 = -1; dj2 <= +1; dj2++) {
+            int val = 0;
+            if (j1 == j2) {
+              val += grid[i][j1];
+            } else {
+              val = grid[i][j1] + grid[i][j2];
+            }
+
+            if (j1 + dj1 >= 0 && j1 + dj1 < c && j2 + dj2 >= 0 &&
+                j2 + dj2 < c) {
+              val += dp[i + 1][j1 + dj1][j2 + dj2];
+            } else {
+              val += -1e8;
+            }
+            maxi = max(maxi, val);
+          }
+        }
+        dp[i][j1][j2] = maxi;
+      }
+    }
+  }
+
+  return dp[0][0][c - 1];
+}
+
+int spaceOptimizedSol(int r, int c, vector<vector<int>> &grid) {
+  vector<vector<int>> front(c, vector<int>(c, 0));
+  vector<vector<int>> curr(c, vector<int>(c, 0));
+  // Base Case
+  for (int j1 = 0; j1 < c; j1++) {
+    for (int j2 = 0; j2 < c; j2++) {
+      if (j1 == j2) {
+        front[j1][j2] += grid[r - 1][j1];
+      } else {
+        front[j1][j2] = grid[r - 1][j1] + grid[r - 1][j2];
+      }
+    }
+  }
+
+  for (int i = r - 2; i >= 0; i--) {
+    for (int j1 = 0; j1 < c; j1++) {
+      for (int j2 = 0; j2 < c; j2++) {
+        int maxi = -1e8;
+        // -1 , 0, 1
+        for (int dj1 = -1; dj1 <= +1; dj1++) {
+          for (int dj2 = -1; dj2 <= +1; dj2++) {
+            int val = 0;
+            if (j1 == j2) {
+              val += grid[i][j1];
+            } else {
+              val = grid[i][j1] + grid[i][j2];
+            }
+
+            if (j1 + dj1 >= 0 && j1 + dj1 < c && j2 + dj2 >= 0 &&
+                j2 + dj2 < c) {
+              val += front[j1 + dj1][j2 + dj2];
+            } else {
+              val += -1e8;
+            }
+            maxi = max(maxi, val);
+          }
+        }
+        curr[j1][j2] = maxi;
+      }
+    }
+    front = curr;
+  }
+
+  return front[0][c - 1];
+}
+
 int cherryPickup(vector<vector<int>> &grid) {
   int r = grid.size();
   int c = grid[0].size();
@@ -84,27 +174,36 @@ int cherryPickup(vector<vector<int>> &grid) {
   // dp[r][c][c]
   vector<vector<vector<int>>> dp(r, vector<vector<int>>(c, vector<int>(c, -1)));
 
+  vector<vector<vector<int>>> dp2(r, vector<vector<int>>(c, vector<int>(c, 0)));
+
   // Recursion
   int ans1 = recursionSol(0, 0, c - 1, grid);
 
   // Memoization
   int ans2 = memoizationSol(0, 0, c - 1, grid, dp);
 
+  // Tabulation
+  int ans3 = tabulationSol(r, c, grid, dp2);
+
+  // Space Optimization
+  int ans4 = spaceOptimizedSol(r, c, grid);
+
   // Console output
   cout << "Recursion: " << ans1 << endl;
   cout << "Memoization: " << ans2 << endl;
+  cout << "Tabulation: " << ans3 << endl;
+  cout << "Space Optimization: " << ans4 << endl;
 
-  // Return memoization answer
-  return ans2;
+  return ans4;
 }
 
-// | Approach    |                          Time |                    Space |
-// | ----------- | ----------------------------: | -----------------------: |
-// | Recursion   |                       O(9^N)  |              O(N)  stack |
-// | Memoization |  O(N × M² × 9)  →  O(N × M²)  |  O(N × M²) + O(N)  stack |
+// | Approach          | Time       | Space                    |
+// |-------------------|------------|--------------------------|
+// | Recursion         | O(9^N)     | O(N) stack               |
+// | Memoization       | O(N*M^2)   | O(N*M^2) + O(N) stack    |
+// | Tabulation        | O(N*M^2)   | O(N*M^2)                 |
+// | Space Optimized   | O(N*M^2)   | O(M^2)                   |
 
-// | Tabulation      || |
-// | Space Optimized || |
 int main() {
   cout << "13 DP 13 Cherry Pickup II | 3D DP" << endl;
   // 2 Start Points

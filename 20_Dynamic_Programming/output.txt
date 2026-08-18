@@ -2,4 +2,6 @@
 
 Maximum Cherries: Recursion: 24
 Memoization: 24
+Tabulation: 24
+Space Optimization: 24
 24
