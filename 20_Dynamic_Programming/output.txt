@@ -1,7 +1,6 @@
-13 DP 13 Cherry Pickup II | 3D DP
-
-Maximum Cherries: Recursion: 24
-Memoization: 24
-Tabulation: 24
-Space Optimization: 24
-24
+ 14 DP 14. Subset Sum Equals to Target | Subsequences and Ways to Solve them
+Recursion: 1
+Memoization: 1
+Tabulation: 1
+Space Optimization: 1
+Final Answer: 1
