@@ -1,4 +1,4 @@
- 14 DP 14. Subset Sum Equals to Target | Subsequences and Ways to Solve them
+15 DP 15 Partition Equal Subset Sum | DP on Subsequences
 Recursion: 1
 Memoization: 1
 Tabulation: 1
