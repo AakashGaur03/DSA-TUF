@@ -1,4 +1,4 @@
-17 DP 17 Counts Subsets with Sum K
+18 DP 18 Count Partitions With Given Difference
 Recursion: 3
 Memoization: 3
 Tabulation: 3
