@@ -1,7 +1,6 @@
-19 DP 19 0/1 Knapsack | Recursion to Single Array Space Optimised Approach | DP on Subsequences
-Recursion: 13
-Memoization: 13
-Tabulation: 13
-Space Optimization: 13
-Single Array: 13
-Final Answer: 13
+20 DP 20 Minimum Coins | Infinite Supplies Pattern
+Recursion: 3
+Memoization: 3
+Tabulation: 3
+Space Optimization: 3
+Final Answer: 3
