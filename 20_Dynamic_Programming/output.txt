@@ -1,6 +1,2 @@
-20 DP 20 Minimum Coins | Infinite Supplies Pattern
-Recursion: 3
-Memoization: 3
-Tabulation: 3
-Space Optimization: 3
-Final Answer: 3
+21 DP 21 Target Sum
+Final Answer: 2
