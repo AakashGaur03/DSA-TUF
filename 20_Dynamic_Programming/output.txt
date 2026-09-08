@@ -1,6 +1,8 @@
-22 DP 22 Coin Change 2
-Recursion: 4
-Memoization: 4
-Tabulation: 4
-Space Optimization: 4
-Final Answer: 4
+23 DP 23 Unbounded Knapsack
+Weight Capacity: 10
+Recursion: 27
+Memoization: 27
+Tabulation: 27
+Space Optimization (2 Arrays): 27
+Space Optimization (1 Array): 27
+Maximum Value: 27
