@@ -1,4 +1,5 @@
-26 DP 26 Print Longest Common Subsequence
-LCS: Memoization LCS: bd
-Tabulation LCS: bd
-bd
+27 DP 27 Longest Common Substring
+Answer: Memoization: 2
+Tabulation: 2
+Space Optimization: 2
+2
