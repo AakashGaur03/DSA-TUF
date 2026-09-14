@@ -1,6 +1,6 @@
-29 DP 29 Minimum Insertions to Make String Palindrome
-Recursion: 3
-Memoization: 3
-Tabulation: 3
-Space Optimization: 3
-Minimum Insertions: 2
+30 DP 30 Minimum Insertions/Deletions to Convert String A to String B
+Recursion: 4
+Memoization: 4
+Tabulation: 4
+Space Optimization: 4
+Minimum Operations: 5
