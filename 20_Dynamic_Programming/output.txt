@@ -1,5 +1,6 @@
-27 DP 27 Longest Common Substring
-Answer: Memoization: 2
-Tabulation: 2
-Space Optimization: 2
-2
+29 DP 29 Minimum Insertions to Make String Palindrome
+Recursion: 3
+Memoization: 3
+Tabulation: 3
+Space Optimization: 3
+Minimum Insertions: 2
