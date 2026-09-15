@@ -1,6 +1,4 @@
-30 DP 30 Minimum Insertions/Deletions to Convert String A to String B
-Recursion: 4
-Memoization: 4
-Tabulation: 4
-Space Optimization: 4
-Minimum Operations: 5
+31 DP 31 Shortest Common Supersequence
+Shortest Common Supersequence: Memoization: mnop
+Tabulation: mnoo
+mnoo
