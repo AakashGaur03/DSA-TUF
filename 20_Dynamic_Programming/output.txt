@@ -1,4 +1,6 @@
-31 DP 31 Shortest Common Supersequence
-Shortest Common Supersequence: Memoization: mnop
-Tabulation: mnoo
-mnoo
+32 DP 32 Distinct Subsequences
+Recursion: 5
+Memoization: 5
+Tabulation: 5
+Space Optimization: 5
+1D Space Optimization: 5
