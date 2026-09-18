@@ -1,6 +1,5 @@
-32 DP 32 Distinct Subsequences
-Recursion: 5
-Memoization: 5
-Tabulation: 5
-Space Optimization: 5
-1D Space Optimization: 5
+33 DP 33 Edit Distance
+Recursion: 4
+Memoization: 4
+Tabulation: 4
+Space Optimization: 4
