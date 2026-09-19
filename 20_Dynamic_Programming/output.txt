@@ -1,5 +1,5 @@
-33 DP 33 Edit Distance
-Recursion: 4
-Memoization: 4
-Tabulation: 4
-Space Optimization: 4
+34 DP 34 Wildcard Matching
+Recursion: 1
+Memoization: 1
+Tabulation: 1
+Space Optimization: 1
