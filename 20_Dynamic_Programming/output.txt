@@ -1,28 +1,11 @@
-39 DP 39 Buy and Sell Stocks With Cooldown
-Recursion: 3
-Memoization: 3
-Tabulation: 3
-Space Optimization: 3
-Space Optimization 2nd Approach: 3
---------------------------------
-Example 1
-Prices: 1 2 3 0 2 
-Maximum Profit: 3
-Recursion: 0
-Memoization: 0
-Tabulation: 0
-Space Optimization: 0
-Space Optimization 2nd Approach: 0
---------------------------------
-Example 2
-Prices: 1 
-Maximum Profit: 0
-Recursion: 0
-Memoization: 0
-Tabulation: 0
-Space Optimization: 0
-Space Optimization 2nd Approach: 0
---------------------------------
-Example 3
-Prices: 5 4 3 2 1 
-Maximum Profit: 0
+41 DP 41 Longest Increasing Subsequence
+
+Example 1:
+Answer: Recursion: 4
+Memoization: 4
+4
+
+Example 2:
+Answer: Recursion: 4
+Memoization: 4
+4
