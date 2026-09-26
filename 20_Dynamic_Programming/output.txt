@@ -1,11 +1,21 @@
-41 DP 41 Longest Increasing Subsequence
+42 DP 42 Prinitng Longest Increasing Subsequence
 
 Example 1:
-Answer: Recursion: 4
+Answer: Tabulation: 4
+Space Optimization: 4
+2 5 7 101 
+Space Optimization 2nd Approach: 4
+Space Optimization 2nd Approach + Print LIS: 4
+Recursion: 4
 Memoization: 4
 4
 
 Example 2:
-Answer: Recursion: 4
+Answer: Tabulation: 4
+Space Optimization: 4
+0 1 2 3 
+Space Optimization 2nd Approach: 4
+Space Optimization 2nd Approach + Print LIS: 4
+Recursion: 4
 Memoization: 4
 4

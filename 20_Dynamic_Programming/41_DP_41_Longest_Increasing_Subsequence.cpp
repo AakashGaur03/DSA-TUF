@@ -25,7 +25,6 @@ int memoizationSol(int ind, int prevInd, vector<int> &nums,
   }
   if (dp[ind][prevInd + 1] != -1) {
     return dp[ind][prevInd + 1];
-    ;
   }
 
   int pick = 0;
