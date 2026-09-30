@@ -1,11 +1,17 @@
-46 DP 46 Longest Bitonic Subsequence
+47 DP 47 Number of Longest Increasing Subsequences
 
 Example 1:
-Recursion: 6
-Space Optimization 2nd Approach: 6
-Final Answer: 6
+Recursion: 2
+Memoization: 2
+Tabulation: 2
+Space Optimization: 2
+Space Optimization 2nd Approach: 2
+Final Answer: 2
 
 Example 2:
-Recursion: 8
-Space Optimization 2nd Approach: 8
-Final Answer: 8
+Recursion: 5
+Memoization: 5
+Tabulation: 5
+Space Optimization: 5
+Space Optimization 2nd Approach: 5
+Final Answer: 5
