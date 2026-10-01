@@ -1,17 +1,4 @@
-47 DP 47 Number of Longest Increasing Subsequences
-
-Example 1:
-Recursion: 2
-Memoization: 2
-Tabulation: 2
-Space Optimization: 2
-Space Optimization 2nd Approach: 2
-Final Answer: 2
-
-Example 2:
-Recursion: 5
-Memoization: 5
-Tabulation: 5
-Space Optimization: 5
-Space Optimization 2nd Approach: 5
-Final Answer: 5
+48 DP 48 Matrix Chain Multiplication
+Recursion: 8000
+Memoization: 8000
+Final Answer: 8000
