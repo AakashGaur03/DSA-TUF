@@ -1,5 +1,5 @@
-49 DP 49 Matrix Chain Multiplication
-Recursion: 8000
-Memoization: 8000
-Tabulation: 8000
-Final Answer: 8000
+50 DP 50 Minimum Cost to Cut the Stick
+Recursion: 16
+Memoization: 16
+Tabulation: 16
+Final Answer: 16
