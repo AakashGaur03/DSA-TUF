@@ -1,4 +1,5 @@
-48 DP 48 Matrix Chain Multiplication
+49 DP 49 Matrix Chain Multiplication
 Recursion: 8000
 Memoization: 8000
+Tabulation: 8000
 Final Answer: 8000
