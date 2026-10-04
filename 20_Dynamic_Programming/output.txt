@@ -1,5 +1,5 @@
-50 DP 50 Minimum Cost to Cut the Stick
-Recursion: 16
-Memoization: 16
-Tabulation: 16
-Final Answer: 16
+51 DP 51 Burst Balloons
+Recursion: 167
+Memoization: 167
+Tabulation: 167
+Final Answer: 167
