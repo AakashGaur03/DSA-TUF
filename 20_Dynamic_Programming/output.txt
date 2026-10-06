@@ -1,5 +1,13 @@
-51 DP 51 Burst Balloons
-Recursion: 167
-Memoization: 167
-Tabulation: 167
-Final Answer: 167
+52 DP 52 Evaluate Boolean Expression to True
+
+Example 1: T|T&F
+Recursion: 1
+Memoization: 1
+Tabulation: 1
+Answer: 1
+
+Example 2: T^F|F
+Recursion: 2
+Memoization: 2
+Tabulation: 2
+Answer: 2
