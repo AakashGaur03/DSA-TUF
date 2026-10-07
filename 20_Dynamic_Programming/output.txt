@@ -1,13 +1,25 @@
-52 DP 52 Evaluate Boolean Expression to True
+53 DP 53 Palindrome Partitioning II
 
-Example 1: T|T&F
-Recursion: 1
+Example 1: aab
+Answer: Recursion: 1
 Memoization: 1
 Tabulation: 1
-Answer: 1
+1
 
-Example 2: T^F|F
-Recursion: 2
-Memoization: 2
-Tabulation: 2
-Answer: 2
+Example 2: a
+Answer: Recursion: 0
+Memoization: 0
+Tabulation: 0
+0
+
+Example 3: ab
+Answer: Recursion: 1
+Memoization: 1
+Tabulation: 1
+1
+
+Example 4: bababcbadcede
+Answer: Recursion: 4
+Memoization: 4
+Tabulation: 4
+4
