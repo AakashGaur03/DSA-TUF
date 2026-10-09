@@ -1,16 +1,4 @@
-54 DP 54 Partition Array for Maximum Sum
-
-Example 1:
-Recursion: 84
-Memoization: 84
-Tabulation: 84
-
-Example 2:
-Recursion: 83
-Memoization: 83
-Tabulation: 83
-
-Example 3:
-Recursion: 1
-Memoization: 1
-Tabulation: 1
+55 DP 55 Maximum Rectangle Area with all 1's
+Example 1: 6
+Example 2: 0
+Example 3: 1
