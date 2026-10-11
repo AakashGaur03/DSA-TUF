@@ -1,0 +1,5 @@
+1 L1. Implement TRIE | INSERT | SEARCH | STARTSWITH
+true
+false
+true
+true
