@@ -1,6 +1,2 @@
-2 L2 Implement Trie-2 | INSERT | countWordsEqualTo() | countWordsStartingWith() | C++ | Java
-2
-2
-1
-1
-0
+Longest Word with All Prefixes | COMPLETE STRING
+ninja
