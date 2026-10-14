@@ -1,2 +1,6 @@
-Longest Word with All Prefixes | COMPLETE STRING
-ninja
+4 L4 Number of Distinct Substrings in a String 
+Input: aba
+Output: 6
+
+Input: abc
+Output: 7
