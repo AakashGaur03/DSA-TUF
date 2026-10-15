@@ -1,6 +1,2 @@
-4 L4 Number of Distinct Substrings in a String 
-Input: aba
-Output: 6
-
-Input: abc
-Output: 7
+6 L6 Maximum XOR of Two Numbers in an Array
+Maximum XOR: 15
