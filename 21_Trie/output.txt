@@ -1,2 +1,2 @@
-6 L6 Maximum XOR of Two Numbers in an Array
-Maximum XOR: 15
+7 L7 Maximum XOR With an Element From Array
+3 3 7 
