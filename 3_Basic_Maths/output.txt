@@ -1,5 +1,2 @@
-Hi Basic Maths
-
-Enter Number to get Digits :
-
-Is Prime Number :21
+4 L4 Print all prime factors of a Number
+[2, 3, 3]
