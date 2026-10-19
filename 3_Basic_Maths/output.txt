@@ -1,2 +1,4 @@
-4 L4 Print all prime factors of a Number
-[2, 3, 3]
+5 L5 Power Exponentiation
+Brute Approach: 2097152
+Optimized Recursive Approach: 2097152
+Optimized Approach: 2.09715e+06

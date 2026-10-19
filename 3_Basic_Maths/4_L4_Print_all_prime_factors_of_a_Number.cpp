@@ -42,9 +42,29 @@ vector<int> primeFactors(int num) {
   return arr;
 }
 
-// TC: O(sqrt(n) * sqrt(n)) = O(n) — loose upper bound
-// SC: O(log n) — output-dependent
-// Auxiliary SC: O(1)
+vector<int> primeFactorsSecondApproach(int num) {
+  vector<int> arr;
+
+  for (int i = 2; i * i <= num; i++) {
+    if (num % i == 0) {
+      while (num % i == 0) {
+        arr.push_back(i);
+        num = num / i;
+      }
+    }
+  }
+
+  if (num != 1) {
+    arr.push_back(num);
+  }
+
+  return arr;
+}
+
+// | Approach                    | Time Complexity      | Output Space |
+// | --------------------------- | -------------------- | ------------ |
+// |  primeFactors()             |  O(n) (upper bound)  |  O(log n)    |
+// |  primeFactorsSecondApproach |  O(sqrt(n))          |  O(log n)    |
 
 int main() {
   cout << "4 L4 Print all prime factors of a Number" << endl;
@@ -52,11 +72,9 @@ int main() {
 
   //   Input: n = 18
   // Output: [2, 3, 3]
-  // Explanation: The prime factorization of 18 is 2×32.
 
   // Input: n = 25
   // Output: [5, 5]
-  // Explanation: The prime factorization of  25 is 52.
 
   int num = 18;
 
@@ -71,6 +89,16 @@ int main() {
   }
   cout << "]" << endl;
 
-  return 0;
+  vector<int> ans2 = primeFactorsSecondApproach(num);
+
+  cout << "[";
+  for (int i = 0; i < ans2.size(); i++) {
+    cout << ans2[i];
+    if (i < ans2.size() - 1) {
+      cout << ", ";
+    }
+  }
+  cout << "]" << endl;
+
   return 0;
 }
