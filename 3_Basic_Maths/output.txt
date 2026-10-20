@@ -1,4 +1,3 @@
-5 L5 Power Exponentiation
-Brute Approach: 2097152
-Optimized Recursive Approach: 2097152
-Optimized Approach: 2.09715e+06
+7 L7 Count Prime in a range L R
+Brute Force: 3 2 4 3 
+Sieve Approach: 3 2 4 3 
