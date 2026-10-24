@@ -1,3 +1,15 @@
-7 L7 Count Prime in a range L R
-Brute Force: 3 2 4 3 
-Sieve Approach: 3 2 4 3 
+8 L8 Smallest Prime Factor (SPF) Queries
+
+Brute Force:
+12: 2 2 3 
+18: 2 3 3 
+25: 5 5 
+100: 2 2 5 5 
+97: 97 
+
+SPF Optimized:
+12: 2 2 3 
+18: 2 3 3 
+25: 5 5 
+100: 2 2 5 5 
+97: 97 

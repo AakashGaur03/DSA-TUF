@@ -95,6 +95,38 @@ vector<int> primesInRangeBetterApporach(vector<vector<int>> &queries) {
   return ans;
 }
 
+vector<int> primesInRangeOptimized(vector<vector<int>> &queries) {
+  // Instead of storing 1 at each index in sieve we will try to store Prime
+  // Numbers till a Number So with that Prefix Sum we can get for example we
+  // have to find for a range 3 to 9 we can get what number is at index 9 and
+  // substract till prime Numbers till index 2 and we got our anwser
+
+  // TC: O(N * log(log(N)) + N + q)
+  // Auxiliary SC: O(N)
+  // Output SC: O(q)
+
+  int N = 1e5;
+  int q = queries.size();
+
+  vector<int> primeArr = sieve(N);
+
+  // Convert the prime lookup array into a prefix sum array.
+  for (int i = 1; i <= N; i++) {
+    primeArr[i] += primeArr[i - 1];
+  }
+
+  vector<int> ans;
+
+  for (int i = 0; i < q; i++) {
+    int l = queries[i][0];
+    int r = queries[i][1];
+
+    ans.push_back(primeArr[r] - primeArr[l - 1]);
+  }
+
+  return ans;
+}
+
 int main() {
   cout << "7 L7 Count Prime in a range L R" << endl;
 
@@ -126,22 +158,20 @@ int main() {
   // The range 3 to 7 contains three prime numbers 3, 5, 7.
 
   vector<vector<int>> queries = {{2, 5}, {4, 7}, {1, 7}, {3, 7}};
-
   vector<int> bruteForceAns = primesInRange(queries);
   vector<int> betterAns = primesInRangeBetterApporach(queries);
+  vector<int> optimizedAns = primesInRangeOptimized(queries);
 
-  cout << "Brute Force: ";
-  for (int num : bruteForceAns) {
-    cout << num << " ";
-  }
+  auto printAns = [](string label, vector<int> &ans) {
+    cout << label;
+    for (int num : ans) {
+      cout << num << " ";
+    }
+    cout << endl;
+  };
 
-  cout << endl;
-
-  cout << "Sieve Approach: ";
-  for (int num : betterAns) {
-    cout << num << " ";
-  }
-
-  cout << endl;
+  printAns("Brute Force: ", bruteForceAns);
+  printAns("Sieve Approach: ", betterAns);
+  printAns("Prefix Sum Approach: ", optimizedAns);
   return 0;
 }
